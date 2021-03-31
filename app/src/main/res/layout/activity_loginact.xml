@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="8 characters or more"
+                android:hint="password"
                 android:padding="15dp"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
@@ -88,6 +88,15 @@
                 android:layout_marginLeft="100dp"
                 android:layout_marginRight="100dp"
                 android:text="login" />
+
+            <TextView
+                android:id="@+id/forgotpasswordtext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Forgot Password?"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:textColor="#2196F3" />
 
             <TextView
                 android:id="@+id/textView6"
