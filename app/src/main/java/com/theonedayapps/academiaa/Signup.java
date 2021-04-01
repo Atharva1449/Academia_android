@@ -15,8 +15,8 @@ private Button back;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-back =findViewById(R.id.backbutton);
-back.setOnClickListener(new View.OnClickListener() {
+        back =findViewById(R.id.backbutton);
+        back.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent int1 =new Intent(Signup.this,MainActivity.class);
