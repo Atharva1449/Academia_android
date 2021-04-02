@@ -58,9 +58,9 @@ String password="jhjhjhjh";
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createAccount("abc1@atha.com", "password");
+                createAccount("abc2@atha.com", "password");
                 Intent intent=new Intent(Signup.this,loginact.class);
-
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
