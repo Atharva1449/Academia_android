@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +25,13 @@ private Button back;
 private Button signup;
 private String email;
 private String password;
+private String copassword;
 private EditText emailid;
 private EditText password1;
+private EditText confirmpassword;
+private TextView statustext;
+private ProgressBar progressBar;
 
-private Button tempbutton;
-private TextView texttemp;
 
     private FirebaseAuth mAuth;
     private static final String TAG = "message";
@@ -41,24 +44,18 @@ private TextView texttemp;
 
         emailid=(EditText) findViewById(R.id.editTextEmailsignup);
         password1=(EditText) findViewById(R.id.editTextTextPasswordsignup);
+        confirmpassword=(EditText) findViewById(R.id.confirmpassword);
+        progressBar=(ProgressBar) findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
         back =findViewById(R.id.backbutton);
         signup =findViewById(R.id.signup_button);
+        statustext=findViewById(R.id.statustext);
 ////////////////////////////////////////////////////////////////////////
 
  email=emailid.getText().toString().trim();
  password=password1.getText().toString().trim();;
 
- tempbutton=(Button)findViewById(R.id.buttontemp);
- texttemp=(TextView) findViewById(R.id.temptext);
 
-// tempbutton.setOnClickListener(new View.OnClickListener() {
-//     @Override
-//     public void onClick(View v) {
-//
-//         texttemp.setText(email);
-//     }
-// });
 
 
 
@@ -81,7 +78,22 @@ private TextView texttemp;
             public void onClick(View v) {
                 email=emailid.getText().toString().trim();
                 password=password1.getText().toString().trim();
-                createAccount(email,password);
+                copassword=confirmpassword.getText().toString().trim();
+
+                if(email.length() <= 0 || password.length() <= 0  || copassword.length() <= 0 ){
+                statustext.setText("*Some of the contents are empty");
+                }
+                else{
+                    if(password.equals(copassword)){
+
+                        createAccount(email,password);
+
+                    }else {
+                        statustext.setText("*Passwords don't match");
+
+                    }
+                }
+
 
             }
         });
@@ -98,6 +110,7 @@ private TextView texttemp;
     }
 
     private void createAccount(String email, String password) {
+        progressBar.setVisibility(View.VISIBLE);
         // [START create_user_with_email]
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -118,6 +131,7 @@ private TextView texttemp;
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(Signup.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+                            progressBar.setVisibility(View.INVISIBLE);
                             updateUI(null);
                         }
                     }

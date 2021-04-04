@@ -100,18 +100,6 @@
                 android:background="@drawable/fullshape_with_shadow"
                 android:inputType="textPassword" />
 
-            <Button
-                android:id="@+id/buttontemp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <TextView
-                android:id="@+id/temptext"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
             <TextView
                 android:id="@+id/textViewss4"
                 android:layout_width="match_parent"
@@ -135,16 +123,33 @@
                 android:background="@drawable/fullshape_with_shadow"
                 android:inputType="textPassword" />
 
+            <TextView
+                android:id="@+id/statustext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:gravity="center"
+                android:text=""
+                android:textColorLink="#FF0000" />
+
             <Button
                 android:id="@+id/signup_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_button"
                 android:textColor="#FFFFFF"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginLeft="100dp"
                 android:layout_marginRight="100dp"
                 android:text="Sign up" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
 
             <TextView
                 android:id="@+id/textView8"
