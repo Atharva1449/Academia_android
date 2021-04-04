@@ -98,6 +98,13 @@
                 android:layout_marginTop="20dp"
                 android:textColor="#2196F3" />
 
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="invisible" />
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
