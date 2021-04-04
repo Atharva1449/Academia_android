@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,8 +24,14 @@ private Button back;
 private Button signup;
 private String email;
 private String password;
+private EditText emailid;
+private EditText password1;
+
+private Button tempbutton;
+private TextView texttemp;
+
     private FirebaseAuth mAuth;
-    private static final String TAG = "EmailPassword";
+    private static final String TAG = "message";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,15 +39,26 @@ private String password;
         setContentView(R.layout.activity_signup);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
+        emailid=(EditText) findViewById(R.id.editTextEmailsignup);
+        password1=(EditText) findViewById(R.id.editTextTextPasswordsignup);
         mAuth = FirebaseAuth.getInstance();
         back =findViewById(R.id.backbutton);
         signup =findViewById(R.id.signup_button);
 ////////////////////////////////////////////////////////////////////////
 
-email="now@atha.com";
- password="jhjhjhjh";
+ email=emailid.getText().toString().trim();
+ password=password1.getText().toString().trim();;
 
+ tempbutton=(Button)findViewById(R.id.buttontemp);
+ texttemp=(TextView) findViewById(R.id.temptext);
 
+// tempbutton.setOnClickListener(new View.OnClickListener() {
+//     @Override
+//     public void onClick(View v) {
+//
+//         texttemp.setText(email);
+//     }
+// });
 
 
 
@@ -60,10 +79,10 @@ email="now@atha.com";
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                email=emailid.getText().toString().trim();
+                password=password1.getText().toString().trim();
                 createAccount(email,password);
-                Intent intent=new Intent(Signup.this,loginact.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+
             }
         });
 
@@ -90,6 +109,9 @@ email="now@atha.com";
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Signup.this, "Authentication successful",
                                     Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(Signup.this,loginact.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

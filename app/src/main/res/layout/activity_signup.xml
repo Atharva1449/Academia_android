@@ -99,6 +99,19 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/fullshape_with_shadow"
                 android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/buttontemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/temptext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
             <TextView
                 android:id="@+id/textViewss4"
                 android:layout_width="match_parent"
