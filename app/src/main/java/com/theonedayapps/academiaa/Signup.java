@@ -20,6 +20,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class Signup extends AppCompatActivity {
 private Button back;
 private Button signup;
+private String email;
+private String password;
     private FirebaseAuth mAuth;
     private static final String TAG = "EmailPassword";
 
@@ -34,8 +36,8 @@ private Button signup;
         signup =findViewById(R.id.signup_button);
 ////////////////////////////////////////////////////////////////////////
 
-String email="qqq@atha.com";
-String password="jhjhjhjh";
+email="now@atha.com";
+ password="jhjhjhjh";
 
 
 
@@ -58,7 +60,7 @@ String password="jhjhjhjh";
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                createAccount("abc2@atha.com", "password");
+                createAccount(email,password);
                 Intent intent=new Intent(Signup.this,loginact.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -86,6 +88,8 @@ String password="jhjhjhjh";
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(Signup.this, "Authentication successful",
+                                    Toast.LENGTH_SHORT).show();
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
