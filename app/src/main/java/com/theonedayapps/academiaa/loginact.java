@@ -42,8 +42,8 @@ public class loginact extends AppCompatActivity {
             }
         });
     }
-
-
+//
+//
 
     private void loginUserAccount() {
         progressBar.setVisibility(View.VISIBLE);
