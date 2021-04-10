@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="1dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Degree Qualification " />
+
+            <RadioGroup
+                android:id="@+id/ais_radiogroupid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/fullshape_with_shadow">
+
+                <RadioButton
+                    android:id="@+id/ais_radio_poly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Polytechnic" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_zcoer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ZCOER" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_mba"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ZIBACAR" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/ais_textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Year" />
+
+            <RadioGroup
+                android:id="@+id/ais_radiogroupid2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fullshape_with_shadow">
+
+                <RadioButton
+                    android:id="@+id/ais_radio_fe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="First Year" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_dse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DSC" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/ais_textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Department" />
+
+            <RadioGroup
+                android:id="@+id/ais_Radio_Grp_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/fullshape_with_shadow">
+
+                <RadioButton
+                    android:id="@+id/ais_radio_cs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CS" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_mech"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mech" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_it"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="IT" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_civil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Civil" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_electrical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Electrical" />
+
+                <RadioButton
+                    android:id="@+id/ais_radio_Etc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Electronics" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/ais_textView_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Addmission Year" />
+
+
+            <EditText
+                android:id="@+id/ais_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                />
+
+            <Button
+                android:id="@+id/ais_button_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button"
+                android:text="Save"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</LinearLayout>
