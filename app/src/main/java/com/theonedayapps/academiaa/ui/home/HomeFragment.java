@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +39,10 @@ public class HomeFragment extends Fragment {
     private String status1;
     private String status2;
     private String status3;
+    private String Degree;
+    private String Year;
+    private String Dept;
+    private String AddYear;
     private String Roll_No;
     private Button button;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -61,19 +66,19 @@ public class HomeFragment extends Fragment {
                         switch(checkedId){
                             case R.id.ais_radio_zcoer: {
                                 status="EN";
-
+                                Degree="Engineering";
 
                             }
                             break;
                             case R.id.ais_radio_poly: {
                                 status="Po";
-
+                                Degree="Polytechnic";
 
                             }
                             break;
                             case R.id.ais_radio_mba: {
                                 status="Mb";
-
+                                Degree="MBA";
                             }
                             break;
 
@@ -85,6 +90,7 @@ public class HomeFragment extends Fragment {
                 date_Add=root.findViewById(R.id.ais_date);
 
 
+
 //Year Of Addmission
                 radiogrp1=(RadioGroup)root.findViewById(R.id.ais_radiogroupid2);
                 radiogrp1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -93,14 +99,14 @@ public class HomeFragment extends Fragment {
                         radiobbtn1=(RadioButton)root.findViewById(checkedId);
                         switch(checkedId){
                             case R.id.ais_radio_fe: {
-                                status2="fe";
-
+                                status2="FE";
+                                AddYear="First Year";
 
                             }
                             break;
                             case R.id.ais_radio_dse: {
-                                status2="dse";
-
+                                status2="DSE";
+                                AddYear="Direct Second Year";
 
                             }
                             break;
@@ -117,37 +123,37 @@ public class HomeFragment extends Fragment {
                         radiobbtn2=(RadioButton)root.findViewById(checkedId);
                         switch(checkedId){
                             case R.id.ais_radio_cs: {
-                                status3="cs";
-
+                                status3="CS";
+                                Dept="Computer";
 
                             }
                             break;
                             case R.id.ais_radio_mech: {
-                                status3="mec";
-
+                                status3="MEC";
+                                Dept="Mechanical";
 
                             }
                             break;
                             case R.id.ais_radio_it: {
-                                status3="it";
-
+                                status3="IT";
+                                Dept="IT";
 
                             }
                             break;
                             case R.id.ais_radio_civil: {
-                                status3="civ";
-
+                                status3="CIV";
+                                Dept="Civil";
 
                             }
                             break;
                             case R.id.ais_radio_electrical: {
-                                status3="ele";
-
+                                status3="ELE";
+                                Dept="Electrical";
                             }
                             break;
                             case R.id.ais_radio_Etc: {
-                                status3="entc";
-
+                                status3="E&TC";
+                                Dept="E&Tc";
 
                             }
                             break;
@@ -167,11 +173,19 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         status1=date_Add.getText().toString().trim();
-
-                        Roll_No=status+status1+status2+status3;
+                        Year=20+date_Add.getText().toString().trim();
+                        if(status.length()>0 || status1.length()>0 || status2.length()>0 || status3.length()>0)
+                        {
+                            Roll_No=status+status1+status2+status3;
                         Intent intent=new Intent(getActivity(), User_Info_Activity.class);
                         intent.putExtra("Roll_No",Roll_No);
+                        intent.putExtra("Degree",Degree);
+                        intent.putExtra("Year",Year);
+                        intent.putExtra("Dept",Dept);
+                        intent.putExtra("AddYear",AddYear);
                         startActivity(intent);
+                        }
+
                     }
                 });
 

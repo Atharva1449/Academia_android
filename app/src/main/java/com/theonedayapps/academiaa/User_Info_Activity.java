@@ -50,22 +50,28 @@ public class User_Info_Activity extends AppCompatActivity {
 
         Intent intent=getIntent();
         String abc=intent.getStringExtra("Roll_No");
+        String degree=intent.getStringExtra("Degree");
+        String year=intent.getStringExtra("Year");
+        String dept=intent.getStringExtra("Dept");
+        String addyear=intent.getStringExtra("AddYear");
+
         protected void onPreExecute(){}
 
         protected String doInBackground(String... arg0) {
 
             try{
 
-                URL url = new URL("https://script.google.com/macros/s/AKfycbzs7iZBVqZi9vDISr5z4c7yF9gM06wlJcECL2jeyNV2pAI-g6ALh60mOCy1pw5oTEgOvA/exec");
+                URL url = new URL("https://script.google.com/macros/s/AKfycbyOUNTuMvEBpDcIsQmAkxZsHjUoykBoHcG5iguXsKVLINBHXeQthPxLISQ1KBH_bZRGNg/exec");
 
                 JSONObject postDataParams = new JSONObject();
 
 
 
-                postDataParams.put("email",abc);
-                postDataParams.put("location","abc");
-                postDataParams.put("time"," pgr");
-
+                postDataParams.put("rollno",abc);
+                postDataParams.put("degree",degree);
+                postDataParams.put("year",year);
+                postDataParams.put("department",dept);
+                postDataParams.put("addyear",addyear);
 
 
                 Log.e("params",postDataParams.toString());
