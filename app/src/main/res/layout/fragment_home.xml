@@ -235,6 +235,14 @@
                 android:layout_marginTop="400dp"
                 android:layout_height="wrap_content" />
 
+            <Button
+                android:id="@+id/ais_button_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_button"
+                android:text="Save"
+                android:textColor="#FFFFFF" />
+
         </LinearLayout>
 
 
