@@ -35,7 +35,7 @@ public class DashboardFragment extends Fragment {
         dashboardViewModel =
                 new ViewModelProvider(this).get(DashboardViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        final TextView textView = root.findViewById(R.id.text_dashboard);
+        //final TextView textView = root.findViewById(R.id.text_dashboard);
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
@@ -45,7 +45,7 @@ public class DashboardFragment extends Fragment {
                 mobileno=root.findViewById(R.id.ais_mobile_number);
                 addharno=root.findViewById(R.id.ais_Addhar);
 
-                button=root.findViewById(R.id.ais_button_save);
+                button=root.findViewById(R.id.ais_save_dashboard);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -67,7 +67,7 @@ public class DashboardFragment extends Fragment {
                 });
 
 
-                textView.setText(s);
+               // textView.setText(s);
             }
         });
         return root;
