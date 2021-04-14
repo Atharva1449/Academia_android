@@ -54,6 +54,10 @@ public class User_Info_Activity extends AppCompatActivity {
         String year=intent.getStringExtra("Year");
         String dept=intent.getStringExtra("Dept");
         String addyear=intent.getStringExtra("AddYear");
+        String name1=intent.getStringExtra("Name");
+        String address1=intent.getStringExtra("Address");
+        String mobileno1=intent.getStringExtra("MobileNo");
+        String addharno1=intent.getStringExtra("AddharNo");
 
         protected void onPreExecute(){}
 
@@ -61,7 +65,7 @@ public class User_Info_Activity extends AppCompatActivity {
 
             try{
 
-                URL url = new URL("https://script.google.com/macros/s/AKfycbyOUNTuMvEBpDcIsQmAkxZsHjUoykBoHcG5iguXsKVLINBHXeQthPxLISQ1KBH_bZRGNg/exec");
+                URL url = new URL("https://script.google.com/macros/s/AKfycbyANe7fzZnVWowEJYRF-pv6wSL3heScpin6jVPKLBT7JxWb0cqLHHuCKmPrx5KZmQMMsg/exec");
 
                 JSONObject postDataParams = new JSONObject();
 
@@ -72,6 +76,10 @@ public class User_Info_Activity extends AppCompatActivity {
                 postDataParams.put("year",year);
                 postDataParams.put("department",dept);
                 postDataParams.put("addyear",addyear);
+                postDataParams.put("name",name1);
+                postDataParams.put("address",address1);
+                postDataParams.put("mobileno",mobileno1);
+                postDataParams.put("addharno",addharno1);
 
 
                 Log.e("params",postDataParams.toString());

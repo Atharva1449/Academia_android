@@ -1,22 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
         android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textSize="0sp" />
+
+    <ScrollView
+        android:id="@+id/ais_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ais_name_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Name"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:id="@+id/ais_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter Name"
+                android:inputType="textPersonName"
+                android:layout_marginTop="25dp"/>
+
+            <TextView
+                android:id="@+id/ais_add_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Address" />
+
+            <EditText
+                android:id="@+id/ais_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="35dp"
+                android:hint="Enter Address"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/ais_number_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mobile Number"
+                android:layout_marginTop="40dp"/>
+
+            <EditText
+                android:id="@+id/ais_mobile_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="45dp"
+                android:hint="Enter Mobile Number"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/ais_Addhar_number_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Addhar Number"
+                android:layout_marginTop="50dp"/>
+
+            <EditText
+                android:id="@+id/ais_Addhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="55dp"
+                android:hint="Enter Addhar Number"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/ais_save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

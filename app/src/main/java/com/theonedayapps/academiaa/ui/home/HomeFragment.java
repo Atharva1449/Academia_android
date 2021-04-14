@@ -45,6 +45,7 @@ public class HomeFragment extends Fragment {
     private String AddYear;
     private String Roll_No;
     private Button button;
+    private Button next;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -188,6 +189,14 @@ public class HomeFragment extends Fragment {
 
                     }
                 });
+
+               /* next=root.findViewById(R.id.ais_button_next);
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });*/
 
 
                 textView.setText(s);
