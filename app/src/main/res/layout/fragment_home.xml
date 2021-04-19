@@ -193,7 +193,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ais_textView_date"
+                    android:id="@+id/ais_textView_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
@@ -204,7 +204,7 @@
 
 
                 <EditText
-                    android:id="@+id/ais_date"
+                    android:id="@+id/ais_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"

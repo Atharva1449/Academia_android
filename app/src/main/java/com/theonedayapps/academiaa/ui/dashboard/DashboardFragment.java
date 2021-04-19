@@ -22,6 +22,7 @@ public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
     private EditText name;
+    private EditText dob;
     private EditText address;
     private EditText mobileno;
     private EditText addharno;
@@ -30,6 +31,7 @@ public class DashboardFragment extends Fragment {
     private String Address;
     private String MobileNo;
     private String AddharNo;
+    private String Dob;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         dashboardViewModel =
@@ -41,15 +43,17 @@ public class DashboardFragment extends Fragment {
             public void onChanged(@Nullable String s) {
 
                 name=root.findViewById(R.id.ais_name);
-                address=root.findViewById(R.id.ais_address);
-                mobileno=root.findViewById(R.id.ais_mobile_number);
-                addharno=root.findViewById(R.id.ais_Addhar);
+                dob=root.findViewById(R.id.ais_Date_of_Birth);
+                address=root.findViewById(R.id.ais_Address);
+                mobileno=root.findViewById(R.id.ais_Mobileno);
+                addharno=root.findViewById(R.id.ais_Addharno);
 
                 button=root.findViewById(R.id.ais_save_dashboard);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Name=name.getText().toString().trim();
+                        Dob=dob.getText().toString().trim();
                         Address=address.getText().toString().trim();
                         MobileNo=mobileno.getText().toString().trim();
                         AddharNo=addharno.getText().toString().trim();
@@ -57,6 +61,7 @@ public class DashboardFragment extends Fragment {
 
                             Intent intent=new Intent(getActivity(), User_Info_Activity.class);
                             intent.putExtra("Name",Name);
+                            intent.putExtra("Dob",Dob);
                             intent.putExtra("Address",Address);
                             intent.putExtra("MobileNo",MobileNo);
                             intent.putExtra("AddharNo",AddharNo);
