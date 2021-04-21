@@ -8,10 +8,10 @@
     android:background = "#F3F6FD"
     tools:context=".ui.dashboard.DashboardFragment">
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background = "#F3F6FD">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,7 +86,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ais_textView_Mother_name"
+                    android:id="@+id/ais_textView_Mobile_no"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
@@ -179,6 +179,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="100dp"
+                android:layout_below="@+id/ais_Addharno"
                 android:text="Save"
                 android:layout_marginRight="100dp" />
 
