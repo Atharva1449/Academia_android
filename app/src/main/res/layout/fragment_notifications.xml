@@ -8,85 +8,75 @@
     android:background = "#F3F6FD"
     tools:context=".ui.notifications.NotificationsFragment">
 
-
+    <TextView
+        android:id="@+id/text_notifications"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:textSize="0dp" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background = "#F3F6FD">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
             <TextView
-                android:id="@+id/text_notifications"
-                android:layout_width="1dp"
-                android:layout_height="1dp"
-                android:textSize="0dp" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-
-                android:src="@drawable/profile"
-                app:civ_border_color="@color/colorPrimaryDark"
-                app:civ_border_width="2dp" />
-
-            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/ais_name_edtxt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginRight="50dp"
-                    android:text="Name"
-                    android:textSize="24sp" />
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="50dp"
+                android:text="Mobile Number"
+                android:textSize="24sp" />
 
 
-                <EditText
-                    android:id="@+id/ais_name_edittxt"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@drawable/fullshape_with_shadow"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:padding="15dp" />
+            <EditText
+                android:id="@+id/ais_navigation_student_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:background="@drawable/fullshape_with_shadow"
+                android:layout_marginTop="20dp"
+                android:hint="Student Mobile Number"
+                android:padding="15dp"
+                android:maxLength="10"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:inputType="textPersonName" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/ais_dob_dis"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Dob"
+                    android:text="Parent Mobile Number"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_dob_edtext"
+                    android:id="@+id/ais_navigation_parentno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:background="@drawable/fullshape_with_shadow"
-
                     android:layout_marginTop="20dp"
+                    android:hint="Parent Mobile Number"
                     android:padding="15dp"
+                    android:maxLength="10"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
@@ -94,71 +84,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/ais_emil_dis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginRight="50dp"
-                    android:text="Email"
-                    android:textSize="24sp" />
 
-
-                <EditText
-                    android:id="@+id/ais_email_edtext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-
-                    android:layout_marginTop="20dp"
-                    android:padding="15dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/ais_mobile_dis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginRight="50dp"
-                    android:text="Mobile Number"
-                    android:textSize="24sp" />
-
-
-                <EditText
-                    android:id="@+id/ais_mob_edtext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-
-                    android:layout_marginTop="20dp"
-                    android:padding="15dp"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/ais_add_dis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
@@ -169,13 +98,13 @@
 
 
                 <EditText
-                    android:id="@+id/ais_add_edtext"
+                    android:id="@+id/ais_navigation_Addresa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:background="@drawable/fullshape_with_shadow"
-
                     android:layout_marginTop="20dp"
+                    android:hint="Address"
                     android:padding="15dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
@@ -184,29 +113,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/ais_dept_dis"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Department"
+                    android:text="State"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_dept_edtext"
+                    android:id="@+id/ais_navigation_state"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:background="@drawable/fullshape_with_shadow"
-                    android:hint="Department"
                     android:layout_marginTop="20dp"
+                    android:hint="Enter State"
                     android:padding="15dp"
+                    android:maxLength="1"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
@@ -214,29 +143,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/ais_addyear_dis"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Addmission Year"
+                    android:text="City"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_addyear_edtext"
+                    android:id="@+id/ais_navigation_City"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:background="@drawable/fullshape_with_shadow"
-                    android:hint="Addmission Year"
                     android:layout_marginTop="20dp"
+                    android:hint="City"
                     android:padding="15dp"
+                    android:maxLength="1"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
@@ -244,40 +173,51 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
-
                 <TextView
-                    android:id="@+id/ais_adharno_dis"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Adhar Number"
+                    android:text="Pincode"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_adharno_edtext"
+                    android:id="@+id/ais_navigation_pincode"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="50dp"
-                    android:background="@drawable/fullshape_with_shadow"
+                    android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="Adhar Number"
-                    android:inputType="textPersonName"
-                    android:padding="15dp" />
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:layout_marginTop="20dp"
+                    android:hint="Pincode"
+                    android:padding="15dp"
+                    android:maxLength="1"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="textPersonName" />
             </LinearLayout>
 
+
+
+            <Button
+                android:id="@+id/ais_notification_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="100dp"
+                android:background="@drawable/shape_button"
+                android:text="Save"
+                android:textColor="#FFFFFF" />
 
         </LinearLayout>
 
 
     </ScrollView>
-
 
 
 </LinearLayout>

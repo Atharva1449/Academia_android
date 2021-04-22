@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.WindowManager;
 import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -12,7 +11,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import org.json.JSONObject;
@@ -31,7 +29,7 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class User_Info_Activity extends AppCompatActivity {
 ProgressBar progressbar;
-int counter=0;
+ private  static int counter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +48,13 @@ int counter=0;
         /*sample*/
         /* sample2*/
     }
-    /*public void prog(){
-        progressbar=(ProgressBar) findViewById(R.id.progressBar);
 
-    }*/
-
+    public int getCounter(int counter){
+        return counter;
+    }
+    public void setCounter(int counter1){
+        counter=counter1;
+    }
 
     public class SendRequest extends AsyncTask<String, Void, String> {
 

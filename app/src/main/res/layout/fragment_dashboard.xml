@@ -11,8 +11,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background = "#F3F6FD">
-
+        android:background = "#F3F6FD">>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,15 +38,15 @@
                     android:id="@+id/ais_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-
-                    android:layout_marginTop="20dp"
-                    android:hint="Enter Name"
-                    android:padding="15dp"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Name"
+                    android:inputType="textPersonName"
+                    android:padding="15dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -65,19 +64,19 @@
                     android:text="Date of Birth"
                     android:textSize="24sp" />
 
-
                 <EditText
                     android:id="@+id/ais_Date_of_Birth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-                    android:layout_marginTop="20dp"
-                    android:hint="Enter DOB"
-                    android:padding="15dp"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter DOB"
+                    android:inputType="textPersonName"
+                    android:padding="15dp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -100,15 +99,17 @@
                     android:id="@+id/ais_Mobileno"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
                     android:hint="Enter Mobile Number"
-                    android:padding="15dp"
+                    android:inputType="textPersonName"
                     android:maxLength="10"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:padding="15dp" />
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -117,28 +118,29 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ais_textView_Address"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Address"
+                    android:text="Father Name"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_Address"
+                    android:id="@+id/ais_fathername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-                    android:layout_marginTop="20dp"
-                    android:hint="Enter Address"
-                    android:padding="15dp"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Father's Name"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:padding="15dp" />
             </LinearLayout>
 
             <LinearLayout
@@ -147,44 +149,262 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ais_textView_Addharno"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Addhar no"
+                    android:text="Mother Name"
+                    android:textSize="24sp" />
+
+                <EditText
+                    android:id="@+id/ais_mothername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Mother's Name"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:padding="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Gaurdian Name"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_Addharno"
+                    android:id="@+id/ais_guardianname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:background="@drawable/fullshape_with_shadow"
-                    android:layout_marginTop="20dp"
-                    android:hint="Enter max length 12 "
-                    android:padding="15dp"
-                    android:maxLength="12"
                     android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="number" />
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Mobile Number"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:padding="15dp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Gender"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/ais_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Gender"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:padding="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Blood Group"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/ais_bloodgrp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Blood Group"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:padding="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Category"
+                    android:textSize="24sp" />
+
+                <RadioGroup
+                    android:id="@+id/ais_dashboard_radiogroupid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:padding="15dp"
+
+                    >
+
+                    <RadioButton
+                        android:id="@+id/ais_radio_open"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="OPEN" />
+
+                    <RadioButton
+                        android:id="@+id/ais_radio_obc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="OBC" />
+
+                    <RadioButton
+                        android:id="@+id/ais_radio_sc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="SC" />
+
+                    <RadioButton
+                        android:id="@+id/ais_radio_st"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="ST" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Adhar No"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/ais_dashboar_adharno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter Adhar No"
+                    android:inputType="textPersonName"
+                    android:padding="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="PAN Number"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/ais_dshboard_panno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter PAN Number"
+                    android:inputType="textPersonName"
+                    android:padding="15dp" />
             </LinearLayout>
             <Button
                 android:id="@+id/ais_save_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape_button"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="50dp"
                 android:layout_marginLeft="100dp"
-                android:layout_below="@+id/ais_Addharno"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="100dp"
+                android:background="@drawable/shape_button"
                 android:text="Save"
-                android:layout_marginRight="100dp" />
+                android:textColor="#FFFFFF" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="" />
         </LinearLayout>
-
-
     </ScrollView>
+
 </LinearLayout>
+
+
+
