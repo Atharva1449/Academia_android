@@ -14,6 +14,15 @@
         android:layout_height="wrap_content"
         android:textSize="1dp" />
 
+
+    <ProgressBar
+        android:id="@+id/ais_progressBar_home"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:padding="20dp"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -57,20 +66,24 @@
                         android:id="@+id/ais_radio_poly"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="Polytechnic" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_zcoer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="ZCOER" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_mba"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="ZIBACAR" />
                 </RadioGroup>
+
             </LinearLayout>
 
             <LinearLayout
@@ -107,12 +120,14 @@
                         android:id="@+id/ais_radio_fe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="First Year" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_dse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="DSC" />
 
                 </RadioGroup>
@@ -152,36 +167,42 @@
                         android:id="@+id/ais_radio_cs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="CS" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_mech"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="Mech" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_it"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="IT" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_civil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="Civil" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_electrical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="Electrical" />
 
                     <RadioButton
                         android:id="@+id/ais_radio_Etc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
                         android:text="Electronics" />
                 </RadioGroup>
             </LinearLayout>
@@ -193,7 +214,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ais_textView_date"
+                    android:id="@+id/ais_textView_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="55dp"
@@ -204,7 +225,7 @@
 
 
                 <EditText
-                    android:id="@+id/ais_date"
+                    android:id="@+id/ais_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -218,6 +239,36 @@
                     android:layout_marginRight="50dp"
                     android:inputType="number" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Division"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/ais_home_division"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:layout_marginTop="20dp"
+                    android:hint="Enter Division"
+                    android:padding="15dp"
+                    android:maxLength="1"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:inputType="textPersonName" />
+            </LinearLayout>>
 
             <Button
                 android:id="@+id/ais_button_save"

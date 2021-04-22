@@ -10,18 +10,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.theonedayapps.academiaa.R;
 import com.theonedayapps.academiaa.User_Info_Activity;
-import com.theonedayapps.academiaa.ui.dashboard.DashboardFragment;
 
 public class HomeFragment extends Fragment {
 
@@ -90,7 +87,7 @@ public class HomeFragment extends Fragment {
                 });
 
 // Addmission year
-                date_Add=root.findViewById(R.id.ais_date);
+                date_Add=root.findViewById(R.id.ais_name);
 
 
 

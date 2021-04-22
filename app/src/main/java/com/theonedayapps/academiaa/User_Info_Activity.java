@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.WindowManager;
+import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import org.json.JSONObject;
@@ -29,7 +28,8 @@ import java.util.Iterator;
 import javax.net.ssl.HttpsURLConnection;
 
 public class User_Info_Activity extends AppCompatActivity {
-
+ProgressBar progressbar;
+ private  static int counter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,12 @@ public class User_Info_Activity extends AppCompatActivity {
         /* sample2*/
     }
 
+    public int getCounter(int counter){
+        return counter;
+    }
+    public void setCounter(int counter1){
+        counter=counter1;
+    }
 
     public class SendRequest extends AsyncTask<String, Void, String> {
 
@@ -59,6 +65,7 @@ public class User_Info_Activity extends AppCompatActivity {
         String dept=intent.getStringExtra("Dept");
         String addyear=intent.getStringExtra("AddYear");
         String name1=intent.getStringExtra("Name");
+        String dob1=intent.getStringExtra("Dob");
         String address1=intent.getStringExtra("Address");
         String mobileno1=intent.getStringExtra("MobileNo");
         String addharno1=intent.getStringExtra("AddharNo");
@@ -69,7 +76,7 @@ public class User_Info_Activity extends AppCompatActivity {
 
             try{
 
-                URL url = new URL("https://script.google.com/macros/s/AKfycbyANe7fzZnVWowEJYRF-pv6wSL3heScpin6jVPKLBT7JxWb0cqLHHuCKmPrx5KZmQMMsg/exec");
+                URL url = new URL("https://script.google.com/macros/s/AKfycbx-HG3OgDuC55ZcYklBLW_m7-jGeZZma3hzrpagHbmqpSB0tjb-VJVYAuU1AlFb5RmCqA/exec");
 
                 JSONObject postDataParams = new JSONObject();
 
@@ -81,6 +88,7 @@ public class User_Info_Activity extends AppCompatActivity {
                 postDataParams.put("department",dept);
                 postDataParams.put("addyear",addyear);
                 postDataParams.put("name",name1);
+                postDataParams.put("dob",dob1);
                 postDataParams.put("address",address1);
                 postDataParams.put("mobileno",mobileno1);
                 postDataParams.put("addharno",addharno1);
