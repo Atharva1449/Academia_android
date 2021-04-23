@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background = "#F3F6FD"
+    android:background = "@drawable/background"
+
     tools:context=".Useractivity">
 
     <TextView
@@ -17,23 +18,30 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="38dp"
+        >
 
         <Button
             android:id="@+id/ais_move"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
             android:layout_marginStart="10dp"
 
-            android:alpha="0.6"
-            android:background="@mipmap/circle_user" />
+android:alpha="0.9"
+            android:background="@drawable/circle_user" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:padding="10dp"
+            android:layout_marginStart="5dp"
+android:layout_marginEnd="5dp"
+            android:textAlignment="center"
+
             android:text="          " />
 
 
@@ -41,7 +49,7 @@
             android:id="@+id/message_"
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:alpha="0.6"
+
             android:layout_marginEnd="10dp"
             android:background="@drawable/ic_round_maps_ugc_24" />
 
@@ -50,13 +58,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/fullshape_with_shadow2">
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="1000dp"
             android:text="TextView" />
+
     </LinearLayout>
+
 
 </LinearLayout>
