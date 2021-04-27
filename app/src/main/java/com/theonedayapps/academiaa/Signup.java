@@ -20,6 +20,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.theonedayapps.academiaa.Shareddata.User;
 
 public class Signup extends AppCompatActivity {
 private Button back;
@@ -124,27 +125,27 @@ private ProgressBar progressBar;
                             Toast.makeText(Signup.this, "Authentication successful",
                                     Toast.LENGTH_SHORT).show();
                             //
-                            User user1=new User("","","","","","","","","","","","","","","","","","","","","");
-
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                    .setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    progressBar.setVisibility(View.GONE);
-                                    if (task.isSuccessful()) {
-                                      //  Toast.makeText(MainActivity.this, "done"), Toast.LENGTH_LONG).show;
-                                    } else {
-                                        //display a failure message
-                                    }
-                                }
-                            });
+//                            User user1=new User("","","","","","","","","","","","","","","","","","","","","");
+//
+//                            FirebaseDatabase.getInstance().getReference("Users")
+//                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+//                                    .setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    progressBar.setVisibility(View.GONE);
+//                                    if (task.isSuccessful()) {
+//                                       Toast.makeText(Signup.this, "done", Toast.LENGTH_LONG).show();
+//                                    } else {
+//                                        //display a failure message
+//                                    }
+//                                }
+//                            });
                             //
 
                             Intent intent=new Intent(Signup.this,loginact.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
-                            updateUI(user);
+                           // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

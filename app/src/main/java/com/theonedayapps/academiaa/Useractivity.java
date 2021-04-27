@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
+
 public class Useractivity extends AppCompatActivity {
     private Button move;
     private TextView textuidtemp;
@@ -26,6 +28,7 @@ public class Useractivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Useractivity.this,User_Info_Activity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });

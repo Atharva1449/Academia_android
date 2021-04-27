@@ -15,7 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.theonedayapps.academiaa.R;
+import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
 import com.theonedayapps.academiaa.User_Info_Activity;
 
 public class NotificationsFragment extends Fragment {
@@ -57,6 +60,8 @@ public class NotificationsFragment extends Fragment {
                     public void onClick(View v) {
 
                         Add=address.getText().toString().trim()+city.getText().toString().trim()+pincode.getText().toString().trim()+state.getText().toString().trim();
+
+
                             /*
                             Intent intent=new Intent(getActivity(), User_Info_Activity.class);
                             intent.putExtra("Roll_No",Roll_No);
@@ -65,8 +70,14 @@ public class NotificationsFragment extends Fragment {
                             intent.putExtra("Dept",Dept);
                             intent.putExtra("AddYear",AddYear);
                             startActivity(intent);*/
+                        Firebase_verification ver=new Firebase_verification();
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myref1 = database.getReference();
 
 
+                        myref1.child("Users").child(ver.getFirebase_uid()).child("Phone_no1").setValue(mobileno.getText().toString());
+                        myref1.child("Users").child(ver.getFirebase_uid()).child("Phone_no2").setValue(parentno.getText().toString());
+                        myref1.child("Users").child(ver.getFirebase_uid()).child("Address").setValue(Add);
                     }
                 });
 

@@ -17,7 +17,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.theonedayapps.academiaa.R;
+import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
 import com.theonedayapps.academiaa.User_Info_Activity;
 
 public class DashboardFragment extends Fragment {
@@ -75,9 +80,38 @@ public class DashboardFragment extends Fragment {
                 mother_name=root.findViewById(R.id.ais_mothername);
                 guardian=root.findViewById(R.id.ais_guardianname);
                 bloodgrp=root.findViewById(R.id.ais_bloodgrp);
-
+                caste=root.findViewById(R.id.ais_dashboard_caste);
+                panno=root.findViewById(R.id.ais_dshboard_panno);
 
                 gender=root.findViewById(R.id.ais_gender);
+
+                radiogrp=(RadioGroup)root.findViewById(R.id.ais_dashboard_radiogroupid);
+                radiogrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        radiobbtn=(RadioButton)root.findViewById(checkedId);
+                        switch(checkedId){
+                            case R.id.ais_radio_open: {
+                                Category_one="OPEN";
+                            }
+                            break;
+                            case R.id.ais_radio_obc: {
+                                Category_one="OBC";
+
+                            }
+                            break;
+                            case R.id.ais_radio_sc: {
+                                Category_one="SC";
+                            }
+                            break;
+                            case R.id.ais_radio_st: {
+                                Category_one="ST";
+                            }
+                            break;
+
+                        }
+                    }
+                });
 
                 button=root.findViewById(R.id.ais_save_dashboard);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -89,48 +123,34 @@ public class DashboardFragment extends Fragment {
                         Father_Name=father_name.getText().toString().trim();
                         Mother_Name=mother_name.getText().toString().trim();
                         Guardian=guardian.getText().toString().trim();
-                        Address=address.getText().toString().trim();
+                        //Address=address.getText().toString().trim();
                         Gender=gender.getText().toString().trim();
                         Caste=caste.getText().toString().trim();
-                        Category=category.getText().toString().trim();
+                  //      Category=category.getText().toString().trim();
                         AddharNo=addharno.getText().toString().trim();
                         PANNo=panno.getText().toString().trim();
 
-                            /*Intent intent=new Intent(getActivity(), User_Info_Activity.class);
-                            intent.putExtra("Name",Name);
-                            intent.putExtra("Dob",Dob);
-                            intent.putExtra("Address",Address);
-                            intent.putExtra("MobileNo",MobileNo);
-                            intent.putExtra("AddharNo",AddharNo);
-                            startActivity(intent);*/
+                        Intent intent=new Intent(getActivity(), User_Info_Activity.class);
 
-                        radiogrp=(RadioGroup)root.findViewById(R.id.ais_dashboard_radiogroupid);
-                        radiogrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                            @Override
-                            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                                radiobbtn=(RadioButton)root.findViewById(checkedId);
-                                switch(checkedId){
-                                    case R.id.ais_radio_open: {
-                                        Category_one="OPEN";
-                                    }
-                                    break;
-                                    case R.id.ais_radio_obc: {
-                                        Category_one="OBC";
+                        Firebase_verification ver1=new Firebase_verification();
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myref1 = database.getReference();
 
-                                    }
-                                    break;
-                                    case R.id.ais_radio_sc: {
-                                        Category_one="SC";
-                                    }
-                                    break;
-                                    case R.id.ais_radio_st: {
-                                        Category_one="ST";
-                                    }
-                                    break;
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Name").setValue(Name);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Dob").setValue(Dob);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Father_name").setValue(Father_Name);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Mother_name").setValue(Mother_Name);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Guardian_name").setValue(Guardian);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Gender").setValue(Gender);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Caste").setValue(Caste);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("category").setValue(Category_one);
+                        myref1.child("Users").child(ver1.getFirebase_uid()).child("Adhar_no").setValue(AddharNo);
+                        //myref1.child("Users").child(ver.getFirebase_uid()).child("").setValue();
 
-                                }
-                            }
-                        });
+
+
+
+
 
 
                     }

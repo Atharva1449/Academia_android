@@ -51,8 +51,8 @@
     <item>
         <shape>
             <solid android:color="#ffffff" />
-            <corners android:topLeftRadius="17dp"
-                android:topRightRadius="17dp"
+            <corners android:topLeftRadius="19dp"
+                android:topRightRadius="19dp"
                 />
         </shape>
     </item>
