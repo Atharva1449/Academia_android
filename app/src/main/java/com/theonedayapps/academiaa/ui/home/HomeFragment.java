@@ -23,8 +23,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.theonedayapps.academiaa.R;
 import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
 import com.theonedayapps.academiaa.Shareddata.Firebaseform1;
@@ -55,6 +58,9 @@ public class HomeFragment extends Fragment {
     private String Roll_No;
     private Button button;
     private Button next;
+    private String temp;
+
+    DataSnapshot dataSnapshot;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
@@ -191,20 +197,60 @@ public class HomeFragment extends Fragment {
                         {
                             Roll_No=status+status1+status2+status3;
                         Intent intent=new Intent(getActivity(), User_Info_Activity.class);
-//                        intent.putExtra("Roll_No",Roll_No);
-//                        intent.putExtra("Degree",Degree);
-//                        intent.putExtra("Year",Year);
-//                        intent.putExtra("Dept",Dept);
-//                        intent.putExtra("AddYear",AddYear);
-                        //fireobj.getFirebase_uid()
-                            Firebase_verification ver=new Firebase_verification();
+
+                            final Firebase_verification ver=new Firebase_verification();
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference myref1 = database.getReference();
+                            final DatabaseReference myref1 = database.getReference();
+//
+
+
+
+                            DatabaseReference ref=FirebaseDatabase.getInstance().getReference();
+                            DatabaseReference userNameRef = ref.child("Counter").child(Year).child(Dept);
+
+                            ValueEventListener eventListener = new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot){
+                                    if(dataSnapshot.exists()) {
+                                        Toast.makeText(getContext(),"Exists",Toast.LENGTH_LONG).show();
+                                        //=dataSnapshot.child(Year).child(Dept).getValue().toString();
+                                        String value=new String();
+                                                value= dataSnapshot.getValue().toString();
+                                        myref1.child("Users").child(ver.getFirebase_uid()).child("Roll_no").setValue(Roll_No+value);
+                                        int tempint=0;
+                                    tempint=Integer.parseInt(value);
+                                    tempint++;
+                                        value=Integer.toString(tempint);
+
+                                    myref1.child("Counter").child(Year).child(Dept).setValue(value);
+                                        Log.d("####rollno2##########",value);
+
+                                    //    break;
+                                    }else {
+                                        myref1.child("Counter").child(Year).child(Dept).setValue("2");
+                                        //temp="1";
+
+                                        myref1.child("Users").child(ver.getFirebase_uid()).child("Roll_no").setValue(Roll_No+"1");
+                                        Log.d("#####rollno####",Roll_No);
+                                      //  break;
+                                    }
+                                }
+
+
+                                @Override
+                                public void onCancelled(DatabaseError error) {
+                                    // Failed to read value
+                                 //   Log.w(TAG, "Failed to read value.", error.toException());
+                                }
+                                };
+                            userNameRef.addListenerForSingleValueEvent(eventListener);
+                          //  Log.d("#####################################rollno1###################",Roll_No);
+//
                             //myref1.child("Users").child(ver.getFirebase_uid()).child("Roll_no","Degree","Year_admission","Department").setValue(Roll_No,Degree,Year,Dept);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Degree").setValue(Degree);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Year_admission").setValue(Year);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Department").setValue(Dept);
-                            myref1.child("Users").child(ver.getFirebase_uid()).child("Roll_no").setValue(Roll_No);
+
 //                            .addOnCompleteListener(new OnCompleteListener<Void>() {
 //                                @Override
 //                                public void onComplete(@NonNull Task<Void> task) {

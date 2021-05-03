@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +32,7 @@ import javax.net.ssl.HttpsURLConnection;
 public class User_Info_Activity extends AppCompatActivity {
 ProgressBar progressbar;
  private  static int counter=0;
+ private Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,16 @@ ProgressBar progressbar;
         NavigationUI.setupWithNavController(navView, navController);
         /*sample*/
         /* sample2*/
+    back=findViewById(R.id.back_button_to_Useractivity);
+    back.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            Intent intent = new Intent(User_Info_Activity.this, Useractivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    });
     }
 
     public int getCounter(int counter){
@@ -172,4 +185,5 @@ ProgressBar progressbar;
 ////    }
 //
 //}
+
 }
