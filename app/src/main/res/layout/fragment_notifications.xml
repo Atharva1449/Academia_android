@@ -136,7 +136,7 @@
                     android:layout_marginTop="20dp"
                     android:hint="Enter State"
                     android:padding="15dp"
-                    android:maxLength="1"
+
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
@@ -166,7 +166,7 @@
                     android:layout_marginTop="20dp"
                     android:hint="City"
                     android:padding="15dp"
-                    android:maxLength="1"
+
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
@@ -196,7 +196,7 @@
                     android:layout_marginTop="20dp"
                     android:hint="Pincode"
                     android:padding="15dp"
-                    android:maxLength="1"
+
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
                     android:inputType="textPersonName" />
