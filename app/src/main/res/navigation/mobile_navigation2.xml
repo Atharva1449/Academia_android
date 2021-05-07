@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_notice">
+
+    <fragment
+        android:id="@+id/navigation_notice"
+        android:name="com.theonedayapps.academiaa.ui2.notice.Notice"
+        android:label="Notice"
+        tools:layout="@layout/fragment_notice" />
+
+    <fragment
+        android:id="@+id/navigation_attendance"
+        android:name="com.theonedayapps.academiaa.ui2.attendance.Attendance"
+        android:label="Attendance"
+        tools:layout="@layout/fragment_attendance" />
+
+    <fragment
+        android:id="@+id/navigation_timetable"
+        android:name="com.theonedayapps.academiaa.ui2.time_table.Time_table"
+        android:label="Time_table"
+        tools:layout="@layout/fragment_time_table" />
+
+    <fragment
+        android:id="@+id/navigation_assignment"
+        android:name="com.theonedayapps.academiaa.ui2.assignment.Assignment"
+        android:label="Assignment"
+        tools:layout="@layout/fragment_assignment" />
+
+    <fragment
+        android:id="@+id/navigation_fee"
+        android:name="com.theonedayapps.academiaa.ui2.fee.Fee"
+        android:label="Fee"
+        tools:layout="@layout/fragment_fee" />
+
+</navigation>
