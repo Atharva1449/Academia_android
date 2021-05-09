@@ -244,23 +244,24 @@
                     android:layout_marginLeft="55dp"
                     android:layout_marginTop="50dp"
                     android:layout_marginRight="50dp"
-                    android:text="Division"
+                    android:text="Semester"
                     android:textSize="24sp" />
 
 
                 <EditText
-                    android:id="@+id/ais_home_division"
+                    android:id="@+id/ais_home_semester"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:background="@drawable/fullshape_with_shadow"
                     android:layout_marginTop="20dp"
-                    android:hint="Enter Division"
+                    android:hint="Enter Semester"
                     android:padding="15dp"
                     android:maxLength="1"
+
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:inputType="number" />
             </LinearLayout>>
 
             <Button

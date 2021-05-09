@@ -25,7 +25,7 @@ public class Assignment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         attendanceViewModel =
                 new ViewModelProvider(this).get(AssignmentViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_attendance, container, false);
+        View root = inflater.inflate(R.layout.fragment_assignment, container, false);
 
         attendanceViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

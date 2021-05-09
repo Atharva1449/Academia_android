@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
 
     private TextView text;
     private EditText date_Add;
+    private EditText sem;
     private RadioGroup radiogrp;
     private RadioButton radiobbtn;
     private RadioGroup radiogrp1;
@@ -55,6 +56,7 @@ public class HomeFragment extends Fragment {
     private String Year;
     private String Dept;
     private String AddYear;
+    private String Sem1;
     private String Roll_No;
     private Button button;
     private Button next;
@@ -70,7 +72,7 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
-
+            sem=root.findViewById(R.id.ais_home_semester);
 //
 //                FirebaseDatabase database = FirebaseDatabase.getInstance();
 //                DatabaseReference myRef = database.getReference("message");
@@ -196,6 +198,7 @@ public class HomeFragment extends Fragment {
                         if(status.length()>0 || status1.length()>0 || status2.length()>0 || status3.length()>0)
                         {
                             Roll_No=status+status1+status2+status3;
+                            Sem1=sem.getText().toString().trim();
                         Intent intent=new Intent(getActivity(), User_Info_Activity.class);
 
                             final Firebase_verification ver=new Firebase_verification();
@@ -250,6 +253,8 @@ public class HomeFragment extends Fragment {
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Degree").setValue(Degree);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Year_admission").setValue(Year);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Department").setValue(Dept);
+                            myref1.child("Users").child(ver.getFirebase_uid()).child("Semester").setValue(Sem1);
+                            myref1.child("Users").child(ver.getFirebase_uid()).child("Attendance").setValue("100");
 
 //                            .addOnCompleteListener(new OnCompleteListener<Void>() {
 //                                @Override
