@@ -106,25 +106,21 @@ public class Attendance extends Fragment {
 
 
 
-                        List pieData = new ArrayList<>();
+
+String decide=String.valueOf(s2)+"/"+String.valueOf(s3);
+String coloring="#02CCCB";
+
+                    if(s2>s3){
+                        decide="!";
+                        }
 
                         if(s1<75){
-
-                            pieData.add(new SliceValue(s1,Color.parseColor("#E85C84")).setLabel(""));
-
-                        }else {
-                            pieData.add(new SliceValue(s1,Color.parseColor("#02CCCB")).setLabel(""));
-
+                          coloring   ="#E85C84";
                         }
-                        pieData.add(new SliceValue(100, Color.parseColor("#6F57E8")).setLabel(""));
-
-                        PieChartData pieChartData = new PieChartData(pieData);
-                        pieChartData.setHasLabels(true).setValueLabelTextSize(14);
-                        pieChartData.setHasCenterCircle(true).setCenterText1(s1+"%").setCenterText1FontSize(20).setCenterText1Color(Color.parseColor("#0097A7"));
-                        pieChartView1.setPieChartData(pieChartData);
-
+                    piechart(s1,coloring,100,"#6F57E8",String.valueOf(s1)+"%",pieChartView1);
                     piechart(s3,"#2D98FB",grand,"#796E57E8",String.valueOf(s3),pieChartView2);
-                    piechart(s2, "#E85C84",s3,"#796E57E8",String.valueOf(s2)+"/"+String.valueOf(s3),pieChartView3);
+                    piechart(s2, "#E85C84",s3,"#796E57E8",decide,pieChartView3);
+
                     }
 
                     @Override
@@ -137,6 +133,8 @@ public class Attendance extends Fragment {
         });
         return root;
     }
+
+
     void piechart(int data,String datacolor,int total,String totalolor,String settext1,PieChartView pieChartView){
 
         List pieData = new ArrayList<>();
