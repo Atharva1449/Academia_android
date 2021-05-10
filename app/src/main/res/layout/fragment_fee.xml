@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:textColor="#70FFFFFF"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:layout_marginBottom="5dp"
         android:text="Fee" />
 
@@ -20,6 +20,20 @@
         android:layout_height="match_parent"
         android:background="@drawable/fullshape_with_shadow2"
         android:orientation="vertical">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="29dp">
+
+            <WebView
+                android:id="@+id/webView1"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:fadingEdge="horizontal" />
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </LinearLayout>

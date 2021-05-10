@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,7 +18,7 @@ import com.theonedayapps.academiaa.ui2.notice.NoticeViewModel;
 public class Fee extends Fragment {
 
     private FeeViewModel feeViewModel;
-
+private WebView mywebview;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         feeViewModel =
@@ -27,6 +28,8 @@ public class Fee extends Fragment {
         feeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
+               mywebview = (WebView) root.findViewById(R.id.webView1);
+                mywebview.loadUrl("https://feepayr.com/");
 
             }
         });

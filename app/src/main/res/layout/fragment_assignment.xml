@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:textColor="#70FFFFFF"
-        android:textSize="24dp"
+        android:textSize="20dp"
         android:layout_marginBottom="5dp"
-        android:text="Assignment" />
+        android:text="Remark" />
 
     <LinearLayout
         android:layout_width="match_parent"
