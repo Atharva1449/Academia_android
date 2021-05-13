@@ -71,8 +71,10 @@ public class loginact extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
 
                             String firebase_uid=FirebaseAuth.getInstance().getCurrentUser().getUid();
+
                             Firebase_verification obj=new Firebase_verification();
                             obj.setFirebase_uid(firebase_uid);
+
                             Intent intent = new Intent(loginact.this, Useractivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
