@@ -64,7 +64,8 @@ private String selected_date;
                         selected_date = String.valueOf(dayOfMonth)+String.valueOf(month+1)+String.valueOf(year);
                         Log.d("##############date", selected_date);
                         timetable_date.setText(selected_date);
-                        firebasefn((String) rollnumber.getText(),"1","A",selected_date,timetable_lecture,pieChartView);
+                        Useractivity obj=new Useractivity();
+                        firebasefn(((Useractivity) getActivity()).gettextview(),"1","A",selected_date,timetable_lecture,pieChartView);
                     }
                 });
 
@@ -102,15 +103,16 @@ private String selected_date;
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String str = dataSnapshot.child("Classroom").child(roll).child(year).child(division).child(date).getValue().toString();
+                String str = dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).getValue().toString();
                 //roll_no=value;
+
                 List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
                 String app="";
                 for (int i = 0; i < items.size(); i++) {
 
                     app=app+System.lineSeparator()+items.get(i);
                 }
-                piechartfun(items.size(), 2,String.valueOf(items.size())+"/8",pie);
+                piechartfun(items.size(), 2,String.valueOf(items.size())+"/6",pie);
                 a.setText(app);
                 Log.d("#####value check", "Value is: " + app);
 

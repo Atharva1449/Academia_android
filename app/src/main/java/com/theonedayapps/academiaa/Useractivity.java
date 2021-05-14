@@ -25,7 +25,7 @@ public class Useractivity extends AppCompatActivity {
     private Button move;
     private TextView textuidtemp;
     private String roll_no;
-   private TextView textroll;
+   private TextView textroll,textrollget;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +50,14 @@ public class Useractivity extends AppCompatActivity {
         textuidtemp=findViewById(R.id.textView7);
         textroll=(TextView) findViewById(R.id.textViewroll);
 
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         Firebase_verification obj1=new Firebase_verification();
         Useractivity obj=new Useractivity();
         set_rollno(obj1.getFirebase_uid(),textroll);
         textuidtemp.setText(obj1.getFirebase_uid());
-
+        gettextview();
         move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +95,10 @@ public class Useractivity extends AppCompatActivity {
         });
 
 
+    }
+    public String gettextview(){
+        textrollget=findViewById(R.id.textViewroll);
+        return textrollget.getText().toString();
     }
 
 
