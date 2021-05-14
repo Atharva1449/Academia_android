@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.theonedayapps.academiaa.R;
+import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
 import com.theonedayapps.academiaa.Useractivity;
 import com.theonedayapps.academiaa.ui2.notice.NoticeViewModel;
 
@@ -56,6 +57,7 @@ private String selected_date;
                 pieChartView=root.findViewById(R.id.chart_timetable);
                 calendarView=root.findViewById(R.id.calendarView);
                 rollnumber=root.findViewById(R.id.textViewroll);
+                Firebase_verification obj3=new Firebase_verification();
                 calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
                     @Override
@@ -65,7 +67,7 @@ private String selected_date;
                         Log.d("##############date", selected_date);
                         timetable_date.setText(selected_date);
                         Useractivity obj=new Useractivity();
-                        firebasefn(((Useractivity) getActivity()).gettextview(),"1","A",selected_date,timetable_lecture,pieChartView);
+                        firebasefn(((Useractivity) getActivity()).gettextview(),selected_date,timetable_lecture,pieChartView,obj3.getFirebase_uid());
                     }
                 });
 
@@ -92,17 +94,20 @@ private String selected_date;
     }
 
 
-    void firebasefn(String roll,String year,String division,String date,TextView a,PieChartView pie){
+    void firebasefn(String roll,String date,TextView a,PieChartView pie,String uid){
         DatabaseReference myRef;
         // Firebase_verification obj=new Firebase_verification();
         myRef = FirebaseDatabase.getInstance().getReference();
-        Useractivity obj3=new Useractivity();
+
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
+                String year=dataSnapshot.child("Users").child(uid).child("Semester").getValue().toString();
+                String division=dataSnapshot.child("Users").child(uid).child("Division").getValue().toString();
+
                 String str = dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).getValue().toString();
                 //roll_no=value;
 

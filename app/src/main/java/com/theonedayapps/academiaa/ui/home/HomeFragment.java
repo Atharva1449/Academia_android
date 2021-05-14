@@ -59,8 +59,8 @@ public class HomeFragment extends Fragment {
     private String Sem1;
     private String Roll_No;
     private Button button;
-    private Button next;
-    private String temp;
+    private TextView divi1;
+    private String divi;
 
     DataSnapshot dataSnapshot;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -73,7 +73,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(@Nullable String s) {
             sem=root.findViewById(R.id.ais_home_semester);
-//
+                divi1=root.findViewById(R.id.ais_home_div);
+            //
 //                FirebaseDatabase database = FirebaseDatabase.getInstance();
 //                DatabaseReference myRef = database.getReference("message");
 // first Radio Group
@@ -199,6 +200,7 @@ public class HomeFragment extends Fragment {
                         {
                             Roll_No=status+status1+status2+status3;
                             Sem1=sem.getText().toString().trim();
+                            divi=divi1.getText().toString().trim();
                         Intent intent=new Intent(getActivity(), User_Info_Activity.class);
 
                             final Firebase_verification ver=new Firebase_verification();
