@@ -23,11 +23,6 @@
         android:label="Time_table"
         tools:layout="@layout/fragment_time_table" />
 
-    <fragment
-        android:id="@+id/navigation_assignment"
-        android:name="com.theonedayapps.academiaa.ui2.assignment.Assignment"
-        android:label="Assignment"
-        tools:layout="@layout/fragment_assignment" />
 
     <fragment
         android:id="@+id/navigation_fee"

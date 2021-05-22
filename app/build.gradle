@@ -44,4 +44,11 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:26.8.0')
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.github.lecho:hellocharts-library:1.5.8@aar'
+    implementation 'com.google.android.material:material:1.1.0'
+    // Dependency FirebaseUI for Firebase Realtime Database
+    implementation 'com.firebaseui:firebase-ui-database:6.2.1'
+
+    // Dependency for Firebase REaltime Database
+    implementation 'com.google.firebase:firebase-database:19.3.1'
+
 }
