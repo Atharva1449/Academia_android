@@ -2,12 +2,9 @@ package com.theonedayapps.academiaa.ui2.attendance;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.theonedayapps.academiaa.R;
 import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
-import com.theonedayapps.academiaa.ui2.notice.NoticeViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +139,7 @@ String coloring="#02CCCB";
             pieData.add(new SliceValue(data,Color.parseColor(datacolor)).setLabel(""));
 
 
-        pieData.add(new SliceValue(total, Color.parseColor(totalolor)).setLabel(""));
+        pieData.add(new SliceValue(total-data, Color.parseColor(totalolor)).setLabel(""));
 
         PieChartData pieChartData = new PieChartData(pieData);
         pieChartData.setHasLabels(true).setValueLabelTextSize(14);

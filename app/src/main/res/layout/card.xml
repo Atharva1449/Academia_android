@@ -2,17 +2,19 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    android:background="@drawable/shape_button"
-    android:orientation="vertical"
-    android:padding="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="25dp"
+    android:background="#E85C84"
+
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/shape_button"
-      android:padding="10dp"
-        android:layout_margin="1dp"
+        android:background="#E85C84"
+      android:padding="12dp"
+
         android:orientation="vertical">
 
         <TextView
@@ -30,8 +32,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:text="Context"
-            android:textColor="#FFFFFF"
+            android:textColor="#BFFFFFFF"
             android:textSize="16dp" />
+
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Link:"
+            android:background="#78ffffff" />
 
         <TextView
 
@@ -47,7 +59,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="www.link.com"
-            android:textColor="#FFFFFF" />
+            android:textStyle="italic"
+
+            android:textColor="#99FFFFFF" />
 
         <TextView
             android:id="@+id/textView_date"
@@ -56,7 +70,7 @@
             android:layout_marginTop="1dp"
             android:gravity="end"
             android:text="dd/mm/yy"
-            android:textColor="#FFFFFF" />
+            android:textColor="#E6FFFFFF" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

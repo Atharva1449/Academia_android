@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +23,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.theonedayapps.academiaa.R;
 import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
 import com.theonedayapps.academiaa.Useractivity;
-import com.theonedayapps.academiaa.ui2.notice.NoticeViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,7 +63,7 @@ private String selected_date;
                                                     int dayOfMonth) {
                         selected_date = String.valueOf(dayOfMonth)+String.valueOf(month+1)+String.valueOf(year);
                         Log.d("##############date", selected_date);
-                        timetable_date.setText(selected_date);
+                        timetable_date.setText(String.valueOf(dayOfMonth)+"-"+String.valueOf(month+1)+"-"+String.valueOf(year));
                         Useractivity obj=new Useractivity();
                         firebasefn(((Useractivity) getActivity()).gettextview(),selected_date,timetable_lecture,pieChartView,obj3.getFirebase_uid());
                     }
@@ -85,7 +83,7 @@ private String selected_date;
         pieData.add(new SliceValue(data, Color.parseColor("#2D98FB")).setLabel(""));
 
 
-        pieData.add(new SliceValue(6, Color.parseColor("#796E57E8")).setLabel(""));
+        pieData.add(new SliceValue(6-data, Color.parseColor("#796E57E8")).setLabel(""));
 
         PieChartData pieChartData = new PieChartData(pieData);
         pieChartData.setHasLabels(true).setValueLabelTextSize(14);
@@ -108,6 +106,7 @@ private String selected_date;
                 String year=dataSnapshot.child("Users").child(uid).child("Semester").getValue().toString();
                 String division=dataSnapshot.child("Users").child(uid).child("Division").getValue().toString();
 
+if(dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).exists()){
                 String str = dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).getValue().toString();
                 //roll_no=value;
 
@@ -119,7 +118,13 @@ private String selected_date;
                 }
                 piechartfun(items.size(), 2,String.valueOf(items.size())+"/6",pie);
                 a.setText(app);
-                Log.d("#####value check", "Value is: " + app);
+                Log.d("#####value check", "Value is: " + app);}
+else{
+    //Toast.makeText(getContext(),"Does not Exist",Toast.LENGTH_LONG).show();
+
+    piechartfun(0,0,"N.A",pie);
+    a.setText("No data available");
+}
 
             }
 
