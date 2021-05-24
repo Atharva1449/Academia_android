@@ -17,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.theonedayapps.academiaa.R;
+import com.theonedayapps.academiaa.Useractivity;
 
 public class Notice extends Fragment {
 
@@ -50,7 +51,7 @@ public class Notice extends Fragment {
         // query in the database to fetch appropriate data
         FirebaseRecyclerOptions<Noticehandle> options
                 = new FirebaseRecyclerOptions.Builder<Noticehandle>()
-                .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice"), Noticehandle.class)
+                .setQuery(FirebaseDatabase.getInstance().getReference().child("Notice").child(((Useractivity) getActivity()).gettextviewyear()).child(((Useractivity) getActivity()).gettextviewdepar()), Noticehandle.class)
                 .build();
         // Connecting object of required Adapter class to
         // the Adapter class itself

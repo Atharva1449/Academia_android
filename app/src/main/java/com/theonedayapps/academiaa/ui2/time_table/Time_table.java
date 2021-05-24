@@ -105,9 +105,16 @@ private String selected_date;
                 // whenever data at this location is updated.
                 String year=dataSnapshot.child("Users").child(uid).child("Semester").getValue().toString();
                 String division=dataSnapshot.child("Users").child(uid).child("Division").getValue().toString();
+                String dep="";
+                if(year.equals("1")){
+                    dep="Fy";
+                }else{
+                     dep=dataSnapshot.child("Users").child(uid).child("Department").getValue().toString();
+                }
+                Log.w("##########",year+dep);
 
-if(dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).exists()){
-                String str = dataSnapshot.child("Classroom").child(year).child(division).child(roll).child(date).getValue().toString();
+if(dataSnapshot.child("Classroom").child(year).child(dep).child(division).child(roll).child("Ttattendance").child(date).exists()){
+                String str = dataSnapshot.child("Classroom").child(year).child(dep).child(division).child(roll).child("Ttattendance").child(date).getValue().toString();
                 //roll_no=value;
 
                 List<String> items = Arrays.asList(str.split("\\s*,\\s*"));

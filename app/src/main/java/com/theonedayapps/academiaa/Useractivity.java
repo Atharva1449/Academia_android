@@ -1,10 +1,5 @@
 package com.theonedayapps.academiaa;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +7,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +34,7 @@ public class Useractivity extends AppCompatActivity {
 
 
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,0);
-
+completion();
         BottomNavigationView navView = findViewById(R.id.nav_view2);
 
 //        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -49,13 +49,14 @@ public class Useractivity extends AppCompatActivity {
         move=findViewById(R.id.ais_move);
         textuidtemp=findViewById(R.id.textView7);
         textroll=(TextView) findViewById(R.id.textViewroll);
-
+        TextView textyear = (TextView) findViewById(R.id.textViewyear);
+        TextView textdep = (TextView) findViewById(R.id.textViewdepart);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
         Firebase_verification obj1=new Firebase_verification();
         Useractivity obj=new Useractivity();
-        set_rollno(obj1.getFirebase_uid(),textroll);
+        set_rollno(obj1.getFirebase_uid(),textroll,textyear,textdep);
         textuidtemp.setText(obj1.getFirebase_uid());
         gettextview();
         move.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +68,7 @@ public class Useractivity extends AppCompatActivity {
             }
         });
     }
-    public static void set_rollno(String uid,TextView a){
+    public static void set_rollno(String uid,TextView a,TextView b,TextView c){
 
         DatabaseReference myRef;
        // Firebase_verification obj=new Firebase_verification();
@@ -79,11 +80,26 @@ public class Useractivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
+                if(dataSnapshot.child("Users").child(uid).child("Roll_no").exists()){
                 String value = dataSnapshot.child("Users").child(uid).child("Roll_no").getValue().toString();
                 //roll_no=value;
-                a.setText(value);
-                Log.d("#####value check", "Value is: " + value);
 
+                    String yearval=dataSnapshot.child("Users").child(uid).child("Semester").getValue().toString();
+                    String depa="";
+                if (yearval.equals("1")){
+                    depa="Fy";
+                }else {
+                    depa=dataSnapshot.child("Users").child(uid).child("Department").getValue().toString();
+
+                }
+                    a.setText(value);
+
+                b.setText(yearval);
+                c.setText(depa);
+
+                Log.d("#####value check", "Value is: " + value);
+                }
+                //come here again
             }
 
             @Override
@@ -100,6 +116,53 @@ public class Useractivity extends AppCompatActivity {
         textrollget=findViewById(R.id.textViewroll);
         return textrollget.getText().toString();
     }
+    public String gettextviewyear(){
+       TextView textrollget=findViewById(R.id.textViewyear);
+        return textrollget.getText().toString();
+    }
+
+    public String gettextviewdepar(){
+        TextView textrollget=findViewById(R.id.textViewdepart);
+        return textrollget.getText().toString();
+    }
+
+    public void completion(){
+        DatabaseReference myRef;
+        // Firebase_verification obj=new Firebase_verification();
+        myRef = FirebaseDatabase.getInstance().getReference();
 
 
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Firebase_verification obj1=new Firebase_verification();
+Useractivity obj=new Useractivity();
+                if(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").exists()) {
+                    String check = dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").getValue().toString();
+                    if(Integer.parseInt(check)<3){
+
+                        Intent intent=new Intent(Useractivity.this,User_Info_Activity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);}
+                }else {
+
+                    Intent intent=new Intent(Useractivity.this,User_Info_Activity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);}
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("value check 2", "Failed to read value.", error.toException());
+
+            }
+        });
+    }
+    public void change_act(){
+
+
+    }
 }
