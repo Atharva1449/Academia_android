@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Teacheractivity extends AppCompatActivity {
 private String year;
 private String depart;
@@ -125,10 +128,13 @@ if(title.getText().toString().length()>0 && content.getText().toString().length(
 if(year.equals("1")){
     depart="Fy";
 }
-
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G");
+    String currentDateandTime = sdf.format(new Date());
     myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("title1").setValue(title.getText().toString());
     myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("content1").setValue(content.getText().toString());
     myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("link").setValue(link.getText().toString());
+    myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("date").setValue(currentDateandTime);
+
     count--;
 
     myref1.child("Counter").child("Noticecounter").setValue(String.valueOf(count));
