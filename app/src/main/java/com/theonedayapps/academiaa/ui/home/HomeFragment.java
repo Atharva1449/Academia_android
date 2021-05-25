@@ -1,11 +1,15 @@
 package com.theonedayapps.academiaa.ui.home;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -19,10 +23,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,8 +30,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.theonedayapps.academiaa.R;
 import com.theonedayapps.academiaa.Shareddata.Firebase_verification;
-import com.theonedayapps.academiaa.Shareddata.Firebaseform1;
 import com.theonedayapps.academiaa.User_Info_Activity;
+import com.theonedayapps.academiaa.Useractivity;
 
 public class HomeFragment extends Fragment {
 
@@ -68,12 +68,22 @@ public class HomeFragment extends Fragment {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final View popupView = inflater.inflate(R.layout.floating_dialog1, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
             sem=root.findViewById(R.id.ais_home_semester);
                 divi1=root.findViewById(R.id.ais_home_div);
+
+                TextView a1 = popupView.findViewById(R.id.gettextviewRollnum);
+                TextView a2 = popupView.findViewById(R.id.gettextviewDepartment);
+                TextView a3 = popupView.findViewById(R.id.gettextviewYearofadmission);
+                TextView a4 = popupView.findViewById(R.id.gettextviewYear);
+                TextView a5 = popupView.findViewById(R.id.gettextviewdivision);
+                completion1(a1,a2,a3,a4,a5);
+
+
             //
 //                FirebaseDatabase database = FirebaseDatabase.getInstance();
 //                DatabaseReference myRef = database.getReference("message");
@@ -291,6 +301,74 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    private void openDialog() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.floating_dialog1);
+        dialog.show();
+    }
 
+
+
+
+    public void completion1(TextView a1, TextView a2, TextView a3, TextView a4, TextView a5){
+        DatabaseReference myRef;
+        // Firebase_verification obj=new Firebase_verification();
+        myRef = FirebaseDatabase.getInstance().getReference();
+
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Firebase_verification obj1=new Firebase_verification();
+                Useractivity obj=new Useractivity();
+                //if(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").exists()) {
+//                    String check = dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").getValue().toString();
+                 //   if((Integer.parseInt(check)<3)) {
+                        if (dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Roll_no").exists()){
+                         //   View popupView = getLayoutInflater().inflate(R.layout.floating_dialog1,container, null);
+
+                        //
+                           ;
+                            //
+                        a1.setText("sddsd");
+//                       a2.setText();
+//                        a3.setText();
+//                        a4.setText();
+//                        a5.setText();
+
+                            openDialog();
+Log.d("@@@@@@@@@@@@@@@",a2.getText().toString());
+                    }
+
+                 //   }
+               // }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("value check 2", "Failed to read value.", error.toException());
+
+            }
+        });
+    }
+//    void setval(){
+//        View popupView = getLayoutInflater().inflate(R.layout.floating_dialog1, null);
+//    TextView a1=popupView.findViewById(R.id.gettextviewRollnum);
+//        TextView a2=popupView.findViewById(R.id.gettextviewDepartment);
+//        TextView a3=popupView.findViewById(R.id.gettextviewYearofadmission);
+//        TextView a4=popupView.findViewById(R.id.gettextviewYear);
+//        TextView a5=popupView.findViewById(R.id.gettextviewdivision);
+//
+//    a1.setText(roll);
+//    a2.setText(depart);
+//    a3.setText(yoa);
+//    a4.setText(yearr);
+//    a5.setText(div);
+//    }
 
 }

@@ -3,6 +3,7 @@ package com.theonedayapps.academiaa;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button Signin;
     private Button Signup;
     private ProgressBar progressBar;
-
+    float x1,x2,y1,y2;
     private FirebaseAuth mAuth;
 
     @Override
@@ -82,6 +83,11 @@ boolean check=false;
     }}
             }
 
+            //
+
+
+    //
+
     private void loginUserAccount() {
 //        progressBar.setVisibility(View.VISIBLE);
 
@@ -124,5 +130,25 @@ boolean check=false;
                         }
                     }
                 });
+    }
+
+    public boolean onTouchEvent( MotionEvent touchEvent){
+        switch(touchEvent.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                x1 = touchEvent.getX();
+                y1 = touchEvent.getY();
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = touchEvent.getX();
+                y2 = touchEvent.getY();
+                if(y1>y2){
+                    Intent i = new Intent(MainActivity.this, Teacher_login.class);
+                    startActivity(i);
+                }else if(x1>x2){
+
+                }
+                break;
+        }
+        return false;
     }
 }
