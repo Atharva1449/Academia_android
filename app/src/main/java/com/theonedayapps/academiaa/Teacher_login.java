@@ -79,6 +79,8 @@ public class Teacher_login extends AppCompatActivity {
                             SharedPreferences.Editor Ed=sp.edit();
                             Ed.putString("Unm",email);
                             Ed.putString("Psw",password);
+                            Ed.putString("Uid",firebase_uid);
+
                             Ed.commit();
                             //
 

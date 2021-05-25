@@ -81,6 +81,28 @@ boolean check=false;
         loginUserAccount();
 
     }}
+
+
+
+        //
+        File f1 = new File(
+                "/data/data/com.theonedayapps.academiaa/shared_prefs/Teacher_Login.xml");
+        if (f1.exists())
+            // Log.d("TAG", "SharedPreferences Name_of_your_preference : exist");
+            check=true;
+
+        // Log.d("TAG", "Setup default preferences");
+        //
+        SharedPreferences sp11=this.getSharedPreferences("Teacher_Login", MODE_PRIVATE);
+
+        String    email1=sp11.getString("Unm", null);
+        String    password1 = sp11.getString("Psw", null);
+
+        if(check==true){
+            if(email1!=null && !email1.equals("")){
+                teacherloginUserAccount();
+
+            }}
             }
 
             //
@@ -127,6 +149,50 @@ boolean check=false;
                         else {
                             Toast.makeText(getApplicationContext(), "Login failed! Check for password", Toast.LENGTH_LONG).show();
                         //    progressBar.setVisibility(View.GONE);
+                        }
+                    }
+                });
+    }
+
+    private void teacherloginUserAccount() {
+//        progressBar.setVisibility(View.VISIBLE);
+
+        String email="q", password="q";
+
+
+        SharedPreferences sp1=this.getSharedPreferences("Teacher_Login", MODE_PRIVATE);
+
+        email=sp1.getString("Unm", "");
+        password = sp1.getString("Psw", "");
+        //
+        //
+///////
+        mAuth=FirebaseAuth.getInstance();
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+//                            progressBar.setVisibility(View.GONE);
+
+                            String firebase_uid= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                            Firebase_verification obj=new Firebase_verification();
+                            obj.setFirebase_uid(firebase_uid);
+
+                            //shared prefrences
+
+                            //
+
+                            Intent intent = new Intent(MainActivity.this, Teacheractivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(), "Login failed! Check for password", Toast.LENGTH_LONG).show();
+                            //    progressBar.setVisibility(View.GONE);
                         }
                     }
                 });

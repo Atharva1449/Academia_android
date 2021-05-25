@@ -1,9 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
     tools:context=".Teacheractivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:padding="2dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:elevation="0dp"
+            android:background="#ffffff"
+            android:text="Notice" />
+
+        <Button
+            android:id="@+id/button_attendance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_button"
+            android:textColor="#FFFFFF"
+
+            android:text="Attendance" />
+
+        <Button
+            android:id="@+id/teacher_Logout"
+            android:background="@drawable/shape_button"
+            android:textColor="#FFFFFF"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Logout" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="50dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="50dp"
+                        android:text="Year"
+                        android:textSize="18sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginRight="50dp"
+                        android:text="Department"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+
+                        android:id="@+id/yearteacher"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="50dp"
+
+                        android:layout_marginTop="20dp"
+                        android:layout_weight="1"
+                        android:layout_marginRight="50dp"
+
+                        android:background="@drawable/fullshape_with_shadow"
+                        android:padding="15dp"
+
+                        >
+
+                        <RadioButton
+                            android:id="@+id/Fy_rbutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="1" />
+
+                        <RadioButton
+                            android:id="@+id/S_rbutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="2" />
+
+                        <RadioButton
+                            android:id="@+id/T_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="3" />
+
+                        <RadioButton
+                            android:id="@+id/T_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="4" />
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/yeardepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                            android:layout_weight="1"
+                        android:layout_marginTop="20dp"
+
+                        android:layout_marginRight="50dp"
+
+                        android:background="@drawable/fullshape_with_shadow"
+                        android:padding="15dp"
+
+                        >
+
+                        <RadioButton
+                            android:id="@+id/Firstyear"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Civil" />
+                        <RadioButton
+                            android:id="@+id/Computer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="CS" />
+
+                        <RadioButton
+                            android:id="@+id/IT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="IT" />
+
+                        <RadioButton
+                            android:id="@+id/Entc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Entc" />
+
+                        <RadioButton
+                            android:id="@+id/Elec"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Elec" />
+
+                        <RadioButton
+                            android:id="@+id/Mech"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Mech" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Title"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/teacher_notice_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter title for notice"
+                    android:inputType="textPersonName"
+                    android:maxLength="20"
+                    android:padding="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Context of notice"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/teacher_notice_context"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="Enter the context of notice"
+                    android:inputType="textPostalAddress"
+
+                    android:padding="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Link"
+                    android:textSize="24sp" />
+
+
+                <EditText
+                    android:id="@+id/teacher_notice_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="50dp"
+                    android:background="@drawable/fullshape_with_shadow"
+                    android:ems="10"
+                    android:hint="link"
+                    android:inputType="textPostalAddress"
+                    android:padding="15dp" />
+
+                <Button
+                    android:id="@+id/teacher_notice_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_button"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginLeft="100dp"
+                    android:text="Post"
+                    android:layout_marginRight="100dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
