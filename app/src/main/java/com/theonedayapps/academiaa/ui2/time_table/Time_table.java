@@ -61,7 +61,12 @@ private String selected_date;
                     @Override
                     public void onSelectedDayChange(CalendarView view, int year, int month,
                                                     int dayOfMonth) {
-                        selected_date = String.valueOf(dayOfMonth)+String.valueOf(month+1)+String.valueOf(year);
+                        if(month+1<10)
+                        selected_date = String.valueOf(dayOfMonth)+0+String.valueOf(month+1)+String.valueOf(year);
+                        else{
+                            selected_date = String.valueOf(dayOfMonth)+String.valueOf(month+1)+String.valueOf(year);
+
+                        }
                         Log.d("##############date", selected_date);
                         timetable_date.setText(String.valueOf(dayOfMonth)+"-"+String.valueOf(month+1)+"-"+String.valueOf(year));
                         Useractivity obj=new Useractivity();

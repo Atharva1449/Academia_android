@@ -71,12 +71,18 @@ public class Attendance extends Fragment {
                     @Override
 
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        String a =   dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Semester").getValue().toString();
+                        String roll =   dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Roll_no").getValue().toString();
 
-                        st1= dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Attendance").getValue().toString();
+                        String b =   dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Department").getValue().toString();
+                        if(a.equals("1")){
+                            b="Fy";
+                        }
+                        String c =  dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Division").getValue().toString();
+                        st1= dataSnapshot.child("Classroom").child(a).child(b).child(c).child(roll).child("Attendance").getValue().toString();
                         att=Integer.valueOf(st1);
-                    String a =   dataSnapshot.child("Users").child(obj.getFirebase_uid()).child("Semester").getValue().toString();
 
-                        st2= dataSnapshot.child("Academics").child(a).child("Totallecnow").getValue().toString();
+                        st2= dataSnapshot.child("Academics").child(a).child(b).child(c).child("Totallecnow").getValue().toString();
                         tot=Integer.valueOf(st2);
                         st3= dataSnapshot.child("Academics").child("Grandtotal").getValue().toString();
                         grand=Integer.valueOf(st3);

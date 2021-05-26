@@ -2,6 +2,7 @@ package com.theonedayapps.academiaa;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class Teacheractivity extends AppCompatActivity {
 private String year;
 private String depart;
 private EditText title,content,link;
-private Button attendance;
+private Button attendance,logoutbutton12;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +40,23 @@ title=findViewById(R.id.teacher_notice_title);
 content=findViewById(R.id.teacher_notice_context);
 link=findViewById(R.id.teacher_notice_link);
 attendance=findViewById(R.id.button_attendance);
+logoutbutton12=findViewById(R.id.teacher_Logout);
+        logoutbutton12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sp=getSharedPreferences("Teacher_Login", MODE_PRIVATE);
+                SharedPreferences.Editor Ed=sp.edit();
+                Ed.remove("Unm");
+                Ed.remove("Psw");
+                Ed.clear();
+                Ed.commit();
+                Intent intent = new Intent(Teacheractivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
 attendance.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

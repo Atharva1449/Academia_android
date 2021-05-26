@@ -1,7 +1,14 @@
 package com.theonedayapps.academiaa;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -12,10 +19,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Attendance_teacher extends AppCompatActivity {
-private Button button;
+private Button button,buttonlogout,buttonnotice,buttonsubmit;
 private static String year,depart,subject;
 private static String div;
 private EditText di,sub;
@@ -25,6 +36,9 @@ private EditText di,sub;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendance_teacher);
     button=findViewById(R.id.button2);
+    buttonlogout=findViewById(R.id.teacher_Logout1);
+    buttonnotice=findViewById(R.id.button_notice1);
+    buttonsubmit=findViewById(R.id.submit);
     di=findViewById(R.id.editTextdivision);
     sub=findViewById(R.id.editTextsubject);
         RadioGroup radiogrp1 = (RadioGroup) findViewById(R.id.yearteacher);
@@ -99,6 +113,30 @@ private EditText di,sub;
                 }
             }
         });
+
+        buttonnotice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Attendance_teacher.this, Teacheractivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);}
+        });
+        buttonlogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sp=getSharedPreferences("Teacher_Login", MODE_PRIVATE);
+                SharedPreferences.Editor Ed=sp.edit();
+                Ed.remove("Unm");
+                Ed.remove("Psw");
+                Ed.clear();
+                Ed.commit();
+                Intent intent = new Intent(Attendance_teacher.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+
+            }
+        });
         RecyclerView recyclerView = findViewById(R.id.recyclerattendance);
     button.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -125,6 +163,45 @@ private EditText di,sub;
 
             //
 
+        }
+
+    });
+    buttonsubmit.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            // Read from the database
+            DatabaseReference myRef;
+            // Firebase_verification obj=new Firebase_verification();
+            myRef = FirebaseDatabase.getInstance().getReference();
+
+            myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.child("Academics").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").exists()) {
+
+        String a= dataSnapshot.child("Academics").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").getValue().toString();
+        int b =Integer.parseInt(a)+1;
+        Log.d("@@@&&&&value a&&&&&&&",a);
+        myRef.child("Academics").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").setValue(String.valueOf(b));
+
+        }else{
+        myRef.child("Academics").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").setValue("1");
+
+        }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("asas", "Failed to read value.", error.toException());
+                }
+            });
+
+            Intent intent = new Intent(Attendance_teacher.this, Attendance_teacher.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            openDialog();
+            startActivity(intent);
         }
 
     });
@@ -197,18 +274,24 @@ private void re(RecyclerView recyclerView){
 //        adapter.stopListening();
 //    }
 }
-
+    private void openDialog() {
+        final Dialog dialog = new Dialog(Attendance_teacher.this);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.done);
+        dialog.show();
+    }
 }
 
 //
-//if(dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").exists()) {
+//if(dataSnapshot.child("Classroom").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").exists()) {
 //
-//        String a= dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").getValue().toString();
+//        String a= dataSnapshot.child("Classroom").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").getValue().toString();
 //        int b =Integer.parseInt(a)+1;
 //        Log.d("@@@&&&&value a&&&&&&&",a);
-//        myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").setValue(String.valueOf(b));
+//        myref1.child("Classroom").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").setValue(String.valueOf(b));
 //
 //        }else{
-//        myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").setValue(obj.getSubject3());
+//        myref1.child("Classroom").child(getYear2()).child(getDepart()).child(getDiv()).child("Totallecnow").setValue(obj.getSubject3());
 //
 //        }
