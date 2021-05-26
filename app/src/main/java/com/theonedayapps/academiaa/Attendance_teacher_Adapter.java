@@ -134,7 +134,7 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
                             if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).exists()) {
 
                                 String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).getValue().toString();
-                                String b=a.replace(obj.getSubject3(),"");
+                                String b=a.replace(","+obj.getSubject3(),"");
                                 Log.d("@@@&&&&value a&&&&&&&", a);
                                 myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(b);
 
