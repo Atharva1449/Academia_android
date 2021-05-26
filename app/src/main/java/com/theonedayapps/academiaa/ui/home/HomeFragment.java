@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -76,12 +77,16 @@ public class HomeFragment extends Fragment {
             sem=root.findViewById(R.id.ais_home_semester);
                 divi1=root.findViewById(R.id.ais_home_div);
 
-                TextView a1 = popupView.findViewById(R.id.gettextviewRollnum);
-                TextView a2 = popupView.findViewById(R.id.gettextviewDepartment);
-                TextView a3 = popupView.findViewById(R.id.gettextviewYearofadmission);
-                TextView a4 = popupView.findViewById(R.id.gettextviewYear);
-                TextView a5 = popupView.findViewById(R.id.gettextviewdivision);
-                completion1(a1,a2,a3,a4,a5);
+                TextView a1 = root.findViewById(R.id.tvdegree);
+                TextView a2 = root.findViewById(R.id.tvyearadmitted);
+                TextView a3 = root.findViewById(R.id.tvdepartment);
+                TextView a4 = root.findViewById(R.id.tvyearofadmission);
+                TextView a5 = root.findViewById(R.id.tvyear);
+                TextView a6= root.findViewById(R.id.tvdivision);
+                LinearLayout scrollView1=root.findViewById(R.id.scrollviewhomemain);
+                LinearLayout scrollView2=root.findViewById(R.id.scrollviewhome);
+
+                completion1(a1,a2,a3,a4,a5,a6,scrollView1,scrollView2);
 
 
             //
@@ -312,7 +317,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    public void completion1(TextView a1, TextView a2, TextView a3, TextView a4, TextView a5){
+    public void completion1(TextView a1, TextView a2, TextView a3, TextView a4, TextView a5, TextView a6, LinearLayout scrollView1, LinearLayout scrollView2){
         DatabaseReference myRef;
         // Firebase_verification obj=new Firebase_verification();
         myRef = FirebaseDatabase.getInstance().getReference();
@@ -334,13 +339,16 @@ public class HomeFragment extends Fragment {
                         //
                            ;
                             //
-                        a1.setText("sddsd");
-//                       a2.setText();
-//                        a3.setText();
-//                        a4.setText();
-//                        a5.setText();
+                            scrollView1.setVisibility(View.GONE);
+                            scrollView2.setVisibility(View.VISIBLE);
+                        a1.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Degree").getValue().toString());
+                       a2.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Roll_no").getValue().toString());
+                        a3.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Department").getValue().toString());
+                        a4.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Year_admission").getValue().toString());
+                        a5.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Semester").getValue().toString());
+                        a6.append(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Division").getValue().toString());
 
-                            openDialog();
+                          //  openDialog();
 Log.d("@@@@@@@@@@@@@@@",a2.getText().toString());
                     }
 
