@@ -97,11 +97,11 @@
                         android:id="@+id/yearteacher"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginStart="5dp"
 
                         android:layout_marginTop="20dp"
                         android:layout_weight="1"
-                        android:layout_marginRight="50dp"
+                        android:layout_marginEnd="5dp"
 
                         android:background="@drawable/fullshape_with_shadow"
                         android:padding="15dp"
@@ -141,11 +141,11 @@
                         android:id="@+id/yeardepartment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                            android:layout_weight="1"
+                        android:layout_marginEnd="2dp"
+                        android:layout_weight="1"
                         android:layout_marginTop="20dp"
 
-                        android:layout_marginRight="50dp"
+
 
                         android:background="@drawable/fullshape_with_shadow"
                         android:padding="15dp"
@@ -247,8 +247,9 @@
                     android:background="@drawable/fullshape_with_shadow"
                     android:ems="10"
                     android:hint="Enter the context of notice"
-                    android:inputType="textPostalAddress"
-
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:maxLength="2000"
+                    android:maxLines="5"
                     android:padding="15dp" />
             </LinearLayout>
 

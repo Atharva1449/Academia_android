@@ -56,7 +56,7 @@ public class Notice extends Fragment {
         // Connecting object of required Adapter class to
         // the Adapter class itself
         adapter = new NoticehandleAdapter(options);
-        // Connecting Adapter class with the Recycler view*/
+        // Connecting Adapter class with the Recycler view
         recyclerView.setAdapter(adapter);
 
 

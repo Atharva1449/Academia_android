@@ -1,6 +1,7 @@
 package com.theonedayapps.academiaa;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -28,6 +29,7 @@ public class Teacheractivity extends AppCompatActivity {
 private String year;
 private String depart;
 private EditText title,content,link;
+private Button attendance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,15 @@ private EditText title,content,link;
 title=findViewById(R.id.teacher_notice_title);
 content=findViewById(R.id.teacher_notice_context);
 link=findViewById(R.id.teacher_notice_link);
-
+attendance=findViewById(R.id.button_attendance);
+attendance.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(Teacheractivity.this, Attendance_teacher.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+});
         TextView textviewbranch=findViewById(R.id.textViewdepart);
         RadioGroup radiogrp1 = (RadioGroup) findViewById(R.id.yearteacher);
         radiogrp1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -128,7 +138,7 @@ if(title.getText().toString().length()>0 && content.getText().toString().length(
 if(year.equals("1")){
     depart="Fy";
 }
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd G");
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
     String currentDateandTime = sdf.format(new Date());
     myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("title1").setValue(title.getText().toString());
     myref1.child("Notice").child(year).child(depart).child(String.valueOf(count)).child("content1").setValue(content.getText().toString());
