@@ -199,3 +199,16 @@ private void re(RecyclerView recyclerView){
 }
 
 }
+
+//
+//if(dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").exists()) {
+//
+//        String a= dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").getValue().toString();
+//        int b =Integer.parseInt(a)+1;
+//        Log.d("@@@&&&&value a&&&&&&&",a);
+//        myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").setValue(String.valueOf(b));
+//
+//        }else{
+//        myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child("Totallecnow").setValue(obj.getSubject3());
+//
+//        }

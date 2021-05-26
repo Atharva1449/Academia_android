@@ -1,5 +1,6 @@
 package com.theonedayapps.academiaa;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -64,13 +68,101 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
                     // obj.getYear2()
                     SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
                     String currentDateandTime = sdf.format(new Date());
+                    DatabaseReference myRef;
+// Firebase_verification obj=new Firebase_verification();
+                    myRef = FirebaseDatabase.getInstance().getReference();
 
-                    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(obj.getSubject3());
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // }
+
+                             if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).exists()) {
+
+                                 String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).getValue().toString();
+
+                                 Log.d("@@@&&&&value a&&&&&&&", a);
+                                 myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(a + "," + obj.getSubject3());
+
+                             } else {
+                                 myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(obj.getSubject3());
+
+                             }
+
+
+                             if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").exists()) {
+
+                                 String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").getValue().toString();
+                                 int b = Integer.parseInt(a) + 1;
+                                 //  Log.d("@@@&&&&value a&&&&&&&",a);
+                                 myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").setValue(String.valueOf(b));
+
+                             } else {
+                                 myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").setValue("1");
+
+                             }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                            Log.w("value check 2", "Failed to read value.", error.toException());
+
+                        }
+                    });
+                //    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(obj.getSubject3());
                     //Do something when Switch button is on/checked
                 }
                 else
                 {
                     //Do something when Switch is off/unchecked
+                //if()
+                    SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+                    String currentDateandTime = sdf.format(new Date());
+                    DatabaseReference myRef;
+// Firebase_verification obj=new Firebase_verification();
+                    myRef = FirebaseDatabase.getInstance().getReference();
+
+
+                    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            // }
+
+                            if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).exists()) {
+
+                                String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).getValue().toString();
+                                String b=a.replace(obj.getSubject3(),"");
+                                Log.d("@@@&&&&value a&&&&&&&", a);
+                                myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(b);
+
+                            } else {
+                                //myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(obj.getSubject3());
+
+                            }
+
+
+                            if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").exists()) {
+
+                                String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").getValue().toString();
+                                int b = Integer.parseInt(a) -1;
+                                //  Log.d("@@@&&&&value a&&&&&&&",a);
+                                myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").setValue(String.valueOf(b));
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError error) {
+                            // Failed to read value
+                            Log.w("value check 2", "Failed to read value.", error.toException());
+
+                        }
+                    });
+
                 }
             }
         });
