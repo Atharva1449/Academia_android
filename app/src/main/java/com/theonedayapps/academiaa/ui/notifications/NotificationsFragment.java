@@ -69,7 +69,7 @@ public class NotificationsFragment extends Fragment {
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+//
                         Add=address.getText().toString().trim()+" "+city.getText().toString().trim()+" "+pincode.getText().toString().trim()+" "+state.getText().toString().trim();
 
 
