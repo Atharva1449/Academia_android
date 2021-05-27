@@ -10,9 +10,111 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background = "#F3F6FD">>
+        android:layout_height="wrap_content">
+
         <LinearLayout
+            android:id="@+id/scrollviewdashboard1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textdashboardname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Name : " />
+
+
+            <TextView
+                android:id="@+id/textdashboarddob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="DOB : " />
+
+
+            <TextView
+                android:id="@+id/textdashboarfathername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Father's name : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardmothersname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Mother's name : " />
+
+            <TextView
+                android:id="@+id/textdashboardgaurdians"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Gaurdians name : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardgender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Gender : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardbloodgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Blood group : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Cast category : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardcaste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Caste : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardAdhar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Adhar number : " />
+
+
+            <TextView
+                android:id="@+id/textdashboardpan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="PAN number : " />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background = "#F3F6FD">
+        <LinearLayout
+            android:id="@+id/scrollviewdashboardmain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

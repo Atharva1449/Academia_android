@@ -16,9 +16,46 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/scrollviewnotification1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginStart="30dp"
+            >
+
+            <TextView
+                android:id="@+id/textnotificationaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Address : " />
+
+            <TextView
+                android:id="@+id/textnotificationmob1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Mobile no : " />
+
+            <TextView
+                android:id="@+id/textnotificationmob2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Parents Mobile no : " />
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/scrollviewnotificationmain1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -50,7 +87,7 @@
                 android:maxLength="10"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
-                android:inputType="textPersonName" />
+                android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,7 +117,7 @@
                     android:maxLength="10"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:inputType="number" />
             </LinearLayout>
 
             <LinearLayout
@@ -199,7 +236,7 @@
 
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="50dp"
-                    android:inputType="textPersonName" />
+                    android:inputType="number" />
             </LinearLayout>
 
 

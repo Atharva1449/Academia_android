@@ -70,7 +70,7 @@
             android:layout_marginBottom="24.8dp"
             android:gravity="center"
             android:text=""
-
+android:alpha="0.1"
             android:textSize="10dp" />
 
         <TextView

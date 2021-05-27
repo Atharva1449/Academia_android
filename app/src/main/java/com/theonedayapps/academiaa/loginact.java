@@ -36,6 +36,16 @@ public class loginact extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
+        Button back=findViewById(R.id.button3);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(loginact.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override

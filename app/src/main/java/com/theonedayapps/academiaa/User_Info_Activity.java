@@ -1,38 +1,23 @@
 package com.theonedayapps.academiaa;
 
 import android.content.Intent;
-import android.os.AsyncTask;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Iterator;
-
-import javax.net.ssl.HttpsURLConnection;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class User_Info_Activity extends AppCompatActivity {
 ProgressBar progressbar;
  private  static int counter=0;
- private Button back;
+ private Button back,logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +36,22 @@ ProgressBar progressbar;
         /*sample*/
         /* sample2*/
     back=findViewById(R.id.back_button_to_Useractivity);
+        logout=findViewById(R.id.buttonlogout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences sp=getSharedPreferences("Login", MODE_PRIVATE);
+                SharedPreferences.Editor Ed=sp.edit();
+                Ed.remove("Unm");
+                Ed.remove("Psw");
+                Ed.clear();
+                Ed.commit();
+                Intent intent = new Intent(User_Info_Activity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
     back.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

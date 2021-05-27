@@ -58,7 +58,9 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="www.link.com"
+            android:linksClickable="true"
+            android:autoLink="web"
+            android:text="linkgoeshere"
             android:textStyle="italic"
 
             android:textColor="#99FFFFFF" />

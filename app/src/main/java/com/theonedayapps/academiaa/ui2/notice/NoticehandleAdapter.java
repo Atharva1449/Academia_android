@@ -48,7 +48,13 @@ public class NoticehandleAdapter extends FirebaseRecyclerAdapter<
         // view (here "person.xml")
         holder.linktext.setText(model.getLink());
 
-
+      //  TextView t2 = (TextView) findViewById(R.id.text2);
+//        holder.linktext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=6f8UWpneEzA")));
+//            }
+//        });
         holder.datetext.setText(model.getDate());
     }
 
