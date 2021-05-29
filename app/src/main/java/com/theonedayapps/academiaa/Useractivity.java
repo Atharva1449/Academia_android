@@ -139,13 +139,9 @@ completion();
                 // whenever data at this location is updated.
                 Firebase_verification obj1=new Firebase_verification();
 Useractivity obj=new Useractivity();
-                if(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").exists()) {
-                    String check = dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("check").getValue().toString();
-                    if(Integer.parseInt(check)<3){
+                if(dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Roll_no").exists() && dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Name").exists() && dataSnapshot.child("Users").child(obj1.getFirebase_uid()).child("Address").exists()) {
 
-                        Intent intent=new Intent(Useractivity.this,User_Info_Activity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);}
+
                 }else {
 
                     Intent intent=new Intent(Useractivity.this,User_Info_Activity.class);
