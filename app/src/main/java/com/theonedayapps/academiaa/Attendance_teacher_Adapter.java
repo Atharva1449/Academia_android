@@ -1,5 +1,7 @@
 package com.theonedayapps.academiaa;
 
+import android.content.Context;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,9 @@ import java.util.Date;
 
 public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
         Attendance_teacherHandle, Attendance_teacher_Adapter.AttendanceViewholder> {
+  //  private static Attendance_teacher_Adapter mContext;
 
+private int c;
     public Attendance_teacher_Adapter(
             @NonNull FirebaseRecyclerOptions<Attendance_teacherHandle> options)
     {
@@ -54,11 +58,14 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
         // "person.class")to appropriate view in Card
         // view (here "person.xml")
     //
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myref1 = database.getReference();
         Attendance_teacher obj=new Attendance_teacher();
         //Set a CheckedChange Listener for Switch Button
         holder.sButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(){
+            private Context context;
+
             @Override
             public void onCheckedChanged(CompoundButton cb, boolean on){
                 if(on)
@@ -119,6 +126,13 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
                 {
                     //Do something when Switch is off/unchecked
                 //if()
+                    //
+                    //Getting intent and PendingIntent instance
+                    //Context context;
+
+//Get the SmsManager instance and call the sendTextMessage method to send message
+                    //
+
                     SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
                     String currentDateandTime = sdf.format(new Date());
                     DatabaseReference myRef;
@@ -130,6 +144,8 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             // }
+                            SmsManager sms=SmsManager.getDefault();
+                            sms.sendTextMessage(dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Phone_no1").getValue().toString(), null, "You haven't attended "+obj.getSubject3()+" Lecture today", null,null);
 
                             if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).exists()) {
 
@@ -202,4 +218,57 @@ public class Attendance_teacher_Adapter  extends FirebaseRecyclerAdapter<
         }
     }
 
+    void fun(Attendance_teacherHandle model){
+        SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+        String currentDateandTime = sdf.format(new Date());
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myref1 = database.getReference();
+        Attendance_teacher obj=new Attendance_teacher();
+
+        DatabaseReference myRef;
+// Firebase_verification obj=new Firebase_verification();
+        myRef = FirebaseDatabase.getInstance().getReference();
+
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // }
+
+                if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).exists()) {
+
+                    String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).getValue().toString();
+
+                    Log.d("@@@&&&&value a&&&&&&&", a);
+                    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(a + "," + obj.getSubject3());
+
+                } else {
+                    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Ttattendance").child(currentDateandTime).setValue(obj.getSubject3());
+
+                }
+
+
+                if (dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").exists()) {
+
+                    String a = dataSnapshot.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").getValue().toString();
+                    int b = Integer.parseInt(a) + 1;
+                    //  Log.d("@@@&&&&value a&&&&&&&",a);
+                    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").setValue(String.valueOf(b));
+
+                } else {
+                    myref1.child("Classroom").child(obj.getYear2()).child(obj.getDepart()).child(obj.getDiv()).child(model.getRollno()).child("Attendance").setValue("1");
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("value check 2", "Failed to read value.", error.toException());
+
+            }
+        });
+    }
 }

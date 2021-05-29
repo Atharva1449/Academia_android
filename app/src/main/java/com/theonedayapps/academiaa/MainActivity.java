@@ -1,8 +1,11 @@
 package com.theonedayapps.academiaa;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +26,7 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int PERMISSION_REQUEST_CODE = 1449;
     private Button Signin;
     private Button Signup;
     private ProgressBar progressBar;
@@ -37,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
 
         Signin=findViewById(R.id.sign_in);
         Signup=findViewById(R.id.Register);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+            if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED) {
+                Log.d("permission", "permission denied to SEND_SMS - requesting it");
+                String[] permissions = {Manifest.permission.SEND_SMS};
+                requestPermissions(permissions, PERMISSION_REQUEST_CODE);
+            }
+        }
 
         Signin.setOnClickListener(new View.OnClickListener() {
             @Override
