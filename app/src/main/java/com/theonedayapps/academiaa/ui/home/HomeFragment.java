@@ -62,6 +62,7 @@ public class HomeFragment extends Fragment {
     private Button button;
     private TextView divi1;
     private String divi;
+    private String division;
 
     DataSnapshot dataSnapshot;
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -271,7 +272,7 @@ public class HomeFragment extends Fragment {
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Year_admission").setValue(Year);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Department").setValue(Dept);
                             myref1.child("Users").child(ver.getFirebase_uid()).child("Semester").setValue(Sem1);
-                            myref1.child("Users").child(ver.getFirebase_uid()).child("Attendance").setValue("100");
+                            myref1.child("Users").child(ver.getFirebase_uid()).child("Division").setValue(divi1.getText().toString());
 
 //                            .addOnCompleteListener(new OnCompleteListener<Void>() {
 //                                @Override
